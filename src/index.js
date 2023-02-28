@@ -1,15 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import rotas from './routes';
 
 dotenv.config()
-const APP = express();
+const app = express();
 
 //liberar qualquer acesso (domínio/IP)
-APP.use(cors())
-APP.use(express.json())
+app.use(cors())
+app.use(express.json())
 
-//require("../src/routes/index")(APP)
+rotas(app)
 
-APP.listen(3001)
+app.listen(3001)
 console.log("Servidor Iniciado")
