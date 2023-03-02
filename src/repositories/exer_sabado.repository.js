@@ -6,3 +6,43 @@ export const create_exer_sabado = async(data) =>{
     })
     return exer_sabado
 }
+
+//listar todas as colunas
+
+export const getAll = async() =>{
+    const sabado = await prisma.exerSabado.findMany({})
+    return sabado
+}
+
+//listar pelo id
+
+export const getById = async(id) =>{
+    const sabado = await prisma.exerSabado.findUnique({
+        where:{
+            id
+        }
+    })
+    return sabado
+}
+
+//atualizar tabela
+export const updateSabado = async(id, data) => {
+    const sabado =  await prisma.exerSabado.update({
+        where:{
+            id
+        },
+        data
+    })
+    return sabado
+}
+
+//deletar da tabela
+
+export const deleteSabado = async(id) => {
+    await prisma.exerSabado.delete({
+        where:{
+            id
+        }
+    })
+    return
+}

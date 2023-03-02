@@ -1,4 +1,4 @@
-import{create_cafe} from '../repositories/cafe.repository'
+import{create_cafe, getAll, getById,updateCafe, deleteCafe} from '../repositories/cafe.repository'
 
 export const create = async(req,res)=>{
     try {
@@ -7,4 +7,41 @@ export const create = async(req,res)=>{
     } catch (error) {
         res.status(400).send(error)
     }
+}
+
+export const get = async (req,res) =>{
+    try {
+        const cafe = await getAll()
+        res.status(200).send(cafe)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+export const getId = async(req,res) => {
+    try {
+        const cafe = await getById(Number(req.params.id))
+        res.status(200).send(cafe)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+export const update = async(req, res) => {
+    try {
+        const cafe = await updateCafe(Number(req.params.id),req.body)
+        res.status(200).send(cafe)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+export const remove = async(req, res) => {
+    try {
+        await deleteCafe(Number(req.params.id))
+        res.status(200).send()
+    } catch (error) {
+        res.status(400).send(error)
+    }
+    
 }

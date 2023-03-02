@@ -6,3 +6,43 @@ export const create_exer_terca = async(data) =>{
     })
     return exer_terca
 }
+
+//listar todas as colunas
+
+export const getAll = async() =>{
+    const terca = await prisma.exerTerca.findMany({})
+    return terca
+}
+
+//listar pelo id
+
+export const getById = async(id) =>{
+    const terca = await prisma.exerTerca.findUnique({
+        where:{
+            id
+        }
+    })
+    return terca
+}
+
+//atualizar tabela
+export const updateTerca = async(id, data) => {
+    const terca =  await prisma.exerTerca.update({
+        where:{
+            id
+        },
+        data
+    })
+    return terca
+}
+
+//deletar da tabela
+
+export const deleteTerca = async(id) => {
+    await prisma.exerTerca.delete({
+        where:{
+            id
+        }
+    })
+    return
+}
