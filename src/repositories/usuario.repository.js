@@ -16,6 +16,7 @@ export const create_usuario = async(data) =>{
             fator_atividade:true,
             imc:true,
             dieta:true,
+
         }
     })
     return user

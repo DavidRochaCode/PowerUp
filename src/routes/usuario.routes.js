@@ -12,6 +12,5 @@ const rotas_usuario = app =>{
     app.delete("/usuario/:id", remove)
 
 }
-
 export default rotas_usuario
 

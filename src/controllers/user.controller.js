@@ -13,7 +13,6 @@ export const create = async(req,res)=>{
     }
 }
 
-
 export const get = async (req,res) =>{
     try {
         const users = await getAll()
