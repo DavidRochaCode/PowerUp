@@ -21,8 +21,18 @@ model Usuario{
   genero String
   fator_atividade Float
   imc IMC?
-  dieta Dieta?
-
+  jantar Jantar?
+  cafe Cafe?
+  lanche_manha Lanche_manha?
+  almoco Almoco?
+  lanche_tarde Lanche_tarde?
+  exerSegunda ExerSegunda?
+  exerTerca ExerTerca?
+  exerQuarta ExerQuarta?
+  exerQuinta ExerQuinta?
+  exerSexta ExerSexta?
+  exerSabado ExerSabado?
+  exerDomingo ExerDomingo?
 }
 
 model IMC{
@@ -32,226 +42,134 @@ model IMC{
   usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Dieta{
-  id Int @id @default(autoincrement())
-  id_usuario Int @unique
-  proposito String
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
-  jantar Jantar?
-  cafe Cafe?
-  lanche_manha Lanche_manha?
-  almoco Almoco?
-  lanche_tarde Lanche_tarde?
-}
+
 
 model Jantar{
   id Int @id @default(autoincrement())
-  id_dieta Int @unique
+  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
-  dieta Dieta @relation(fields: [id_dieta], references: [id])
-  alimento Alimento[]
+  nome_alimento String
+  quantidade Float
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  
+  
 }
 
 model Cafe{
   id Int @id @default(autoincrement())
-  id_dieta Int @unique
+  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
-  dieta Dieta @relation(fields: [id_dieta], references: [id])
-  alimento Alimento[]
+  nome_alimento String
+  quantidade Float
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  
 }
 
 model Lanche_manha{
   id Int @id @default(autoincrement())
-  id_dieta Int @unique
+  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
-  dieta Dieta @relation(fields: [id_dieta], references: [id])
-  alimento Alimento[]
+  nome_alimento String
+  quantidade Float
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+ 
 }
 
 model Almoco{
   id Int @id @default(autoincrement())
-  id_dieta Int @unique
+  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
-  dieta Dieta @relation(fields: [id_dieta], references: [id])
-  alimento Alimento[]
+  nome_alimento String
+  quantidade Float
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  
 }
 
 model Lanche_tarde{
   id Int @id @default(autoincrement())
-  id_dieta Int @unique
+  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
-  dieta Dieta @relation(fields: [id_dieta], references: [id])
-  alimento Alimento[]
-}
-
-model Alimento{
-  id Int @id @default(autoincrement())
-  nome String
+  nome_alimento String
   quantidade Float
-  id_janta Int
-  id_cafe Int
-  id_lanche_manha Int
-  id_lanche_tarde Int
-  id_almoco Int
-  jantar Jantar @relation(fields: [id_janta], references: [id])
-  cafe Cafe  @relation(fields: [id_cafe], references: [id])
-  lanche_manha Lanche_manha  @relation(fields: [id_lanche_manha], references: [id])
-  almoco Almoco  @relation(fields: [id_almoco], references: [id])
-  lanche_tarde Lanche_tarde  @relation(fields: [id_lanche_tarde], references: [id])
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+ 
 }
 
-model Treino{
-  id Int @id @default(autoincrement())
-  id_usuario Int
-  exercicio_nome String
-  triceps_treino Triceps_treino[]
-  deltoides_treino Deltoides_treino[]
-  peitoral_treino Peitoral_treino[]
-  gluteo_treino Gluteo_treino[]
-  coxa_treino Coxa_treino[]
-  panturrilha_treino Panturrilha_treino[]
-  dorsal_treino Dorsal_treino[]
-  biceps_treino Biceps_treino[]
-  
 
-}
-
-model Exer_triceps{
+model ExerSegunda{ //exer_triceps
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  triceps_treino Triceps_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Exer_deltoides{
+model ExerTerca{ //exer_deltoides
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  deltoides_treino Deltoides_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
   
 }
 
-model Exer_peitoral{
+model ExerQuarta{ //exer_peitoral
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  peitoral_treino Peitoral_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Exer_gluteo{
+model ExerQuinta{ //exer_gluteo
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  gluteo_treino Gluteo_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Exer_coxa{
+model ExerSexta{ //exer_coxa
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  coxa_treino Coxa_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Exer_panturrilha{
+model ExerSabado{ //exer_panturruilha
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  panturrilha_treino Panturrilha_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Exer_dorsal{
+model ExerDomingo{ //exer_dorsal
   id Int @id @default(autoincrement())
+  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  dorsal_treino Dorsal_treino[]
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 }
 
-model Exer_biceps{
-  id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
-  biceps_treino Biceps_treino[]
-}
 
-model Triceps_treino{
-  id_treino Int 
-  id_exer_triceps Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_triceps @relation(fields: [id_exer_triceps], references: [id])
-  @@id([id_treino,id_exer_triceps])
-}
 
-model Deltoides_treino{
-  id_treino Int 
-  id_exer_deltoides Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_deltoides @relation(fields: [id_exer_deltoides], references: [id])
-  @@id([id_treino,id_exer_deltoides])
-}
-
-model Peitoral_treino{
-  id_treino Int 
-  id_exer_peitoral Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_peitoral @relation(fields: [id_exer_peitoral], references: [id])
-  @@id([id_treino,id_exer_peitoral])
-}
-
-model Gluteo_treino{
-  id_treino Int
-  id_exer_gluteo Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_gluteo @relation(fields: [id_exer_gluteo], references: [id])
-  @@id([id_treino,id_exer_gluteo])
-}
-
-model Coxa_treino{
-  id_treino Int 
-  id_exer_coxa Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_coxa @relation(fields: [id_exer_coxa], references: [id])
-  @@id([id_treino,id_exer_coxa])
-}
-
-model Panturrilha_treino{
-  id_treino Int 
-  id_exer_panturrilha Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_panturrilha @relation(fields: [id_exer_panturrilha], references: [id])
-  @@id([id_treino,id_exer_panturrilha])
-}
-
-model Dorsal_treino{
-  id_treino Int
-  id_exer_dorsal Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_dorsal @relation(fields: [id_exer_dorsal], references: [id])
-  @@id([id_treino,id_exer_dorsal])
-}
-
-model Biceps_treino{
-  id_treino Int
-  id_exer_biceps Int 
-  treino Treino @relation(fields: [id_treino], references: [id])
-  exer_triceps Exer_biceps @relation(fields: [id_exer_biceps], references: [id])
-  @@id([id_treino,id_exer_biceps])
-}
 
