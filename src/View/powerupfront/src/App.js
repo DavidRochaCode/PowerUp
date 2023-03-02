@@ -2,8 +2,16 @@
 
 function App() {
   return (
-    <div className="App">
-      <h1>Projeto</h1>
+    <div>
+      <div>
+        <p>header</p>
+      </div>
+      <div>
+        <p>Login</p>
+      </div>
+      <div>
+        <p>footer</p>
+      </div>
     </div>
   );
 }
