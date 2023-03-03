@@ -25,7 +25,7 @@ export function LoginArea(){
                     </form>
                 </div>
 
-                <div className="my-[20px] ml-[200px] text-sm font-thin text-[#45aaf2] underline">
+                <div className="ml-[120px] text-sm font-thin text-[#45aaf2] underline">
                     <p>Cadastrar</p>
                 </div>
 
