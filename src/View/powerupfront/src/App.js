@@ -15,6 +15,7 @@ function App() {
             <Route exact path='/cadastro' element={<SingUp/>}></Route>
             </Routes>
         </Container>
+        
     </Router>
   );
 }

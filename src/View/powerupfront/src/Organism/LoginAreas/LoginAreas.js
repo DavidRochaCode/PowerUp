@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Input } from "../../Atomic/Input/Input";
-import { Button } from "../../Button/Button";
+import { Buttons } from "../../Atomic/Buttons/Buttons";
+import { Inputs } from "../../Atomic/Input/Inputs";
 
-export function LoginArea({title,subTitle,but}){
+export function LoginAreas({title,subTitle,but}){
     return(
         <div className='col-span-12  h-max  mx-[80px] flex justify-center items-center'>
             <div className="flex flex-col items-center justify-center w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
@@ -15,14 +15,14 @@ export function LoginArea({title,subTitle,but}){
                 <div className="my-[20px]">
                     <form action="" method="">
                         <label htmlFor="" className="text-[#8854d0]">Nome de usuário:</label>
-                        <Input type="text" place="Nome:"/>
+                        <Inputs type="text" place="Nome:"/>
                     </form>
                 </div>
 
                 <div className="my-[20px]">
                     <form action="" method="">  
                         <label htmlFor="" className="text-[#8854d0]">Senha:</label>
-                        <Input type="password" place="Senha:"/>
+                        <Inputs type="password" place="Senha:"/>
                     </form>
                 </div>
 
@@ -32,11 +32,8 @@ export function LoginArea({title,subTitle,but}){
                     </Link>
                 </div>
 
-                <div className="my-[20px]">
-                    
-                        <Button name={but}/>
-                    
-                    
+                <div className="my-[20px]">  
+                        <Buttons name={but}/>
                 </div>   
 
             </div>

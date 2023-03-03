@@ -1,4 +1,4 @@
-export function Footer(){
+export function Footers(){
     return(
         <div className="col-span-12 bg-[#341f97] h-max text-[#fff]">
                 <div className="flex flex-row">

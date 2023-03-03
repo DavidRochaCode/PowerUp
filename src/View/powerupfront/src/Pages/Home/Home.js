@@ -1,19 +1,18 @@
-import { Button } from "../../Button/Button";
-import { Footer } from "../../Organism/Footer/Footer";
 import { Link } from "react-router-dom";
-import { Header } from "../../Organism/Header/Header";
+import { Buttons } from '../../Atomic/Buttons/Buttons.js';
+import { Headers } from "../../Organism/Headers.js/Headers.js";
+import { Footers } from "../../Organism/Footers/Footers.js";
 
 export function Home(){
     return(
         <div>
-            <Header/>
+            <Headers/>
             <div>
                 <Link to='/login'>
-                    <Button name="login"/>
+                    <Buttons name="login"/>
                 </Link>
-               
             </div>
-            <Footer/>
+            <Footers/>
         </div>
     )
 }

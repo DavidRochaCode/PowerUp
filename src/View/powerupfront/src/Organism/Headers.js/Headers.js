@@ -1,4 +1,4 @@
-export function Header(){
+export function Headers(){
     return(
         <div className="col-span-12 bg-[#8854d0] h-20">
            <div className="col-span-6 mx-[80px]">
