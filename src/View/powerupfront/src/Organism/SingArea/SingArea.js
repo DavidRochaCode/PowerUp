@@ -1,7 +1,7 @@
 import { Input } from "../../Atomic/Input/Input";
 import { Button } from "../../Button/Button";
 
-export function LoginArea({title,subTitle,but}){
+export function SingArea({title,subTitle,but}){
     return(
         <div className='col-span-12  h-max  mx-[80px] flex justify-center items-center'>
             <div className="flex flex-col items-center justify-center w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
@@ -13,20 +13,23 @@ export function LoginArea({title,subTitle,but}){
 
                 <div className="my-[20px]">
                     <form action="" method="">
-                        <label htmlFor="" className="text-[#8854d0]">Nome de usuário:</label>
+                        <label htmlFor="" className="text-[#8854d0]">Informe um usuário:</label>
                         <Input type="text" place="Nome:"/>
                     </form>
                 </div>
 
                 <div className="my-[20px]">
                     <form action="" method="">  
-                        <label htmlFor="" className="text-[#8854d0]">Senha:</label>
-                        <Input type="password" place="Senha:"/>
+                        <label htmlFor="" className="text-[#8854d0]">Informe um email:</label>
+                        <Input type="email" place="Email:"/>
                     </form>
                 </div>
 
-                <div className="ml-[120px] text-sm font-thin text-[#45aaf2] underline">
-                    <p>Cadastrar</p>
+                <div className="my-[20px]">
+                    <form action="" method="">  
+                        <label htmlFor="" className="text-[#8854d0]">Informe uma senha:</label>
+                        <Input type="password" place="Senha:"/>
+                    </form>
                 </div>
 
                 <div className="my-[20px]">

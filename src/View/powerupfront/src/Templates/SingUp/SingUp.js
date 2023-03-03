@@ -1,12 +1,12 @@
 import { Footer } from "../../Organism/Footer/Footer";
 import { Header } from "../../Organism/Header/Header";
-import { LoginArea } from "../../Organism/LoginArea/LoginArea";
+import { SingArea } from "../../Organism/SingArea/SingArea";
 
-export function Login(){
+export function SingUp(){
     return(
         <div className="grid grid-cols-12">
             <Header/>
-            <LoginArea title="PowerUp" subTitle="Login" but="Login"/>
+            <SingArea title="PowerUp" subTitle="Cadastro" but="Cadastrar"/>
             <Footer/>
         </div>
     )
