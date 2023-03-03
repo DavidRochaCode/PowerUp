@@ -15,14 +15,14 @@ export function LoginAreas({title,subTitle,but}){
                 <div className="my-[20px]">
                     <form action="" method="">
                         <label htmlFor="" className="text-[#8854d0]">Nome de usuário:</label>
-                        <Inputs type="text" place="Nome:"/>
+                        <Inputs type="text" place="Nome:" name="" id="" func=""/>
                     </form>
                 </div>
 
                 <div className="my-[20px]">
                     <form action="" method="">  
                         <label htmlFor="" className="text-[#8854d0]">Senha:</label>
-                        <Inputs type="password" place="Senha:"/>
+                        <Inputs type="password" place="Senha:" name="" id="" func=""/>
                     </form>
                 </div>
 
@@ -33,7 +33,7 @@ export function LoginAreas({title,subTitle,but}){
                 </div>
 
                 <div className="my-[20px]">  
-                        <Buttons name={but}/>
+                        <Buttons name={but} id="" func=""/>
                 </div>   
 
             </div>

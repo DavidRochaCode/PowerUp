@@ -19,62 +19,62 @@ export function SingAreas({title,subTitle,but1,but2}){
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe um usuário:</label>
-                        <Inputs type="text" place="Nome:"/>
+                        <Inputs type="text" place="Nome:"  name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                      
                         <label htmlFor="" className="text-[#8854d0]">Informe um email:</label>
-                        <Inputs  type="email" place="Email:"/>
+                        <Inputs  type="email" place="Email:" name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe uma senha:</label>
-                        <Inputs type="password" place="Senha:"/>
+                        <Inputs type="password" place="Senha:" name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe a idade:</label>
-                        <Inputs type="text" place="Idade:"/>
+                        <Inputs type="text" place="Idade:" name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe o peso:</label>
-                        <Inputs type="text" place="Peso:"/>
+                        <Inputs type="text" place="Peso:" name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe a altura:</label>
-                        <Inputs type="text" place="Altura"/>
+                        <Inputs type="text" place="Altura" name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe gênero:</label>
-                        <Inputs type="text" place="Genêro"/>
+                        <Inputs type="text" place="Genêro" name="" id="" func=""/>
                     
                     </div>
 
                     <div className="my-[20px]">
                     
                         <label htmlFor="" className="text-[#8854d0]">Informe a atividade:</label>
-                        <Inputs type="text" place="Atividade:"/>
+                        <Inputs type="text" place="Atividade:" name="" id="" func=""/>
                     
                     </div>
-
-                    <div className="flex justify-between w-full ">
+                    
+                    <div className="flex justify-between w-full "> 
                         <div className="my-[20px]">
-                            <Buttons name={but1}/>
+                            <Buttons name={but1} id="" func=""/>
                         </div>
 
                         <div className="my-[20px]">
