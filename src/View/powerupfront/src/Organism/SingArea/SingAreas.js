@@ -15,41 +15,76 @@ export function SingAreas({title,subTitle,but1,but2}){
                    <h2 className="text-2xl font-medium flex justify-center mt-[10px]">{subTitle}</h2>
                 </div>
 
-                <div className="my-[20px]">
-                    <form action="" method="">
+                <form action="" method="">
+                    <div className="my-[20px]">
+                    
                         <label htmlFor="" className="text-[#8854d0]">Informe um usuário:</label>
                         <Inputs type="text" place="Nome:"/>
-                    </form>
-                </div>
-
-                <div className="my-[20px]">
-                    <form action="" method="">  
-                        <label htmlFor="" className="text-[#8854d0]">Informe um email:</label>
-                        <Inputs  type="email" place="Email:"/>
-                    </form>
-                </div>
-
-                <div className="my-[20px]">
-                    <form action="" method="">  
-                        <label htmlFor="" className="text-[#8854d0]">Informe uma senha:</label>
-                        <Inputs type="password" place="Senha:"/>
-                    </form>
-                </div>
-
-                <div className="flex justify-between w-full ">
-                    <div className="my-[20px]">
-                        <Buttons name={but1}/>
+                    
                     </div>
 
                     <div className="my-[20px]">
-                        <Link to='/login'>
-                            <BackButtons name={but2}/>
-                        </Link>
-                       
-                    </div> 
-                </div>
+                     
+                        <label htmlFor="" className="text-[#8854d0]">Informe um email:</label>
+                        <Inputs  type="email" place="Email:"/>
+                    
+                    </div>
 
-                  
+                    <div className="my-[20px]">
+                    
+                        <label htmlFor="" className="text-[#8854d0]">Informe uma senha:</label>
+                        <Inputs type="password" place="Senha:"/>
+                    
+                    </div>
+
+                    <div className="my-[20px]">
+                    
+                        <label htmlFor="" className="text-[#8854d0]">Informe a idade:</label>
+                        <Inputs type="text" place="Idade:"/>
+                    
+                    </div>
+
+                    <div className="my-[20px]">
+                    
+                        <label htmlFor="" className="text-[#8854d0]">Informe o peso:</label>
+                        <Inputs type="text" place="Peso:"/>
+                    
+                    </div>
+
+                    <div className="my-[20px]">
+                    
+                        <label htmlFor="" className="text-[#8854d0]">Informe a altura:</label>
+                        <Inputs type="text" place="Altura"/>
+                    
+                    </div>
+
+                    <div className="my-[20px]">
+                    
+                        <label htmlFor="" className="text-[#8854d0]">Informe gênero:</label>
+                        <Inputs type="text" place="Genêro"/>
+                    
+                    </div>
+
+                    <div className="my-[20px]">
+                    
+                        <label htmlFor="" className="text-[#8854d0]">Informe a atividade:</label>
+                        <Inputs type="text" place="Atividade:"/>
+                    
+                    </div>
+
+                    <div className="flex justify-between w-full ">
+                        <div className="my-[20px]">
+                            <Buttons name={but1}/>
+                        </div>
+
+                        <div className="my-[20px]">
+                            <Link to='/login'>
+                                <BackButtons name={but2}/>
+                            </Link>
+                       
+                        </div> 
+                    </div>
+                </form>
 
             </div>
                 
