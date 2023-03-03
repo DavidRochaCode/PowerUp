@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Input } from "../../Atomic/Input/Input";
 import { Button } from "../../Button/Button";
 
@@ -26,11 +27,16 @@ export function LoginArea({title,subTitle,but}){
                 </div>
 
                 <div className="ml-[120px] text-sm font-thin text-[#45aaf2] underline">
-                    <p>Cadastrar</p>
+                    <Link to='/cadastro'>
+                        <p>Cadastrar</p>
+                    </Link>
                 </div>
 
                 <div className="my-[20px]">
-                    <Button name={but}/>
+                    
+                        <Button name={but}/>
+                    
+                    
                 </div>   
 
             </div>

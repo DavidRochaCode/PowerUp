@@ -1,7 +1,10 @@
 import { Input } from "../../Atomic/Input/Input";
+import { BackButton } from "../../Button/BackButton";
 import { Button } from "../../Button/Button";
+import { Link } from "react-router-dom";
 
-export function SingArea({title,subTitle,but}){
+
+export function SingArea({title,subTitle,but1,but2}){
     return(
         <div className='col-span-12  h-max  mx-[80px] flex justify-center items-center'>
             <div className="flex flex-col items-center justify-center w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
@@ -32,9 +35,20 @@ export function SingArea({title,subTitle,but}){
                     </form>
                 </div>
 
-                <div className="my-[20px]">
-                    <Button name={but}/>
-                </div>   
+                <div className="flex justify-between w-full ">
+                    <div className="my-[20px]">
+                        <Button name={but1}/>
+                    </div>
+
+                    <div className="my-[20px]">
+                        <Link to='/login'>
+                            <BackButton name={but2}/>
+                        </Link>
+                       
+                    </div> 
+                </div>
+
+                  
 
             </div>
                 
