@@ -14,8 +14,8 @@ export function LoginAreas({title,subTitle,but}){
 
                 <div className="my-[20px]">
                     <form action="" method="">
-                        <label htmlFor="" className="text-[#8854d0]">Nome de usuário:</label>
-                        <Inputs type="text" place="Nome:" name="" id="" func=""/>
+                        <label htmlFor="" className="text-[#8854d0]">Email do usuário:</label>
+                        <Inputs type="Email" place="Email:" name="" id="" func=""/>
                     </form>
                 </div>
 

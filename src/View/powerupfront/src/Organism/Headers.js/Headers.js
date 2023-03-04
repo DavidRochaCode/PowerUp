@@ -6,7 +6,7 @@ export function Headers(){
                 <p className="mx-[80px] text-3xl  mt-[20px]">PowerUp</p>
                 <ul className="mx-[80px] mt-[20px] flex flex-row ">
                     <li className="ml-[20px]">
-                        <Link to='/'>
+                        <Link to='/perfil'>
                             <p>Perfil</p>
                         </Link>
                     </li>
