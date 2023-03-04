@@ -110,7 +110,7 @@ export function PerfilArea(){
                 </div>
                 <div>
                     <p>
-                        Grafico
+                        Graficoo
                     </p>
                 </div>
             </div>
