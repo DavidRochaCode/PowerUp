@@ -4,5 +4,7 @@
 5432
 /var/run/postgresql
 *
-     9308         0
-stopping
+    30090         6
+ready   
+
+
