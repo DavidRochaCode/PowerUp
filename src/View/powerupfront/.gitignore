@@ -11,6 +11,8 @@
 # production
 /build
 
+/banco-de-dados-powerup
+
 # misc
 .DS_Store
 .env.local

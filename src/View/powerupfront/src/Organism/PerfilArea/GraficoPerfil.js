@@ -5,16 +5,7 @@ export function GraficoPerfil(){
     return(
         <div>
             <Headers/>
-            <div className="flex flex-row">
-                <div>
-                    <p>Dados</p>
-                </div>
-                <div>
-                    <p>
-                        Grafico
-                    </p>
-                </div>
-            </div>
+            
             <Footers/>
         </div>
     )

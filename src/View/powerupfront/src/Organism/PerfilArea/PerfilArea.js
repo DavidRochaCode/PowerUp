@@ -44,7 +44,8 @@ export function PerfilArea(){
     }
 
     return(
-        <div className='col-span-12  h-max  mx-[80px] flex justify-start items-center'>
+        <div className="grid grid-cols-12">
+        <div className='col-span-6  h-max  mx-[80px] flex justify-start items-center'>
         <div className="flex flex-col items-center justify-center w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
             
             <div className="my-[20px]">
@@ -103,5 +104,17 @@ export function PerfilArea(){
         </div>
             
     </div>
+    <div className="col-span-6 flex flex-row">
+                <div>
+                    <p>Dados</p>
+                </div>
+                <div>
+                    <p>
+                        Grafico
+                    </p>
+                </div>
+            </div>
+    </div>
+    
     )
 }

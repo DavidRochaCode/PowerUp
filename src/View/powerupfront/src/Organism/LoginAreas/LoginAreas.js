@@ -4,6 +4,7 @@ import { Inputs } from "../../Atomic/Input/Inputs";
 
 export function LoginAreas({title,subTitle,but}){
     return(
+        
         <div className='col-span-12  h-max  mx-[80px] flex justify-center items-center'>
             <div className="flex flex-col items-center justify-center w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
                 
@@ -39,5 +40,6 @@ export function LoginAreas({title,subTitle,but}){
             </div>
                 
         </div>
+       
     )
 }
