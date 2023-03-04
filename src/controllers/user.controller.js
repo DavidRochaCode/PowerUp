@@ -1,6 +1,5 @@
 import{create_usuario, getAll, getById,updateUser, deleteUser} from '../repositories/usuario.repository'
 import bcrypt from 'bcrypt'
-import { number } from 'yup'
 
 export const create = async(req,res)=>{
     try {

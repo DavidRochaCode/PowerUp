@@ -13,161 +13,182 @@ datasource db {
 
 model Usuario{
   id Int @id @default(autoincrement())
-  nome String
+  idPerfil Int @unique
+  idConta Int @unique
+  idExerSegunda Int @unique
+  idExerTerca Int @unique
+  idExerQuarta Int @unique
+  idExerQuinta Int @unique
+  idExerSexta Int @unique
+  idExerSabado Int @unique
+  idExerDomingo Int @unique
+  idImc Int @unique
+  idJantar Int @unique
+  idCafe Int @unique
+  idLancheManha Int @unique
+  idAlmoco Int @unique
+  idLancheTarde Int @unique
+
+
+  imc IMC @relation(fields: [idImc], references: [id])
+  jantar Jantar @relation(fields: [idJantar], references: [id])
+  cafe Cafe @relation(fields: [idCafe], references: [id])
+  lancheManha Lanche_manha @relation(fields: [idLancheManha], references: [id])
+  almoco Almoco @relation(fields: [idAlmoco], references: [id])
+  lancheTarde Lanche_tarde @relation(fields: [idLancheTarde], references: [id])
+  exerSegunda ExerSegunda  @relation(fields: [idExerSegunda], references: [id])
+  exerTerca ExerTerca @relation(fields: [idExerTerca], references: [id])
+  exerQuarta ExerQuarta @relation(fields: [idExerQuarta], references: [id])
+  exerQuinta ExerQuinta @relation(fields: [idExerQuinta], references: [id])
+  exerSexta ExerSexta @relation(fields: [idExerSexta], references: [id])
+  exerSabado ExerSabado @relation(fields: [idExerSabado], references: [id])
+  exerDomingo ExerDomingo  @relation(fields: [idExerDomingo], references: [id])
+  conta Conta @relation(fields: [idConta], references: [id])
+  perfil Perfil @relation(fields: [idPerfil], references: [id])
+
+}
+
+model Conta{
+  id Int @id @default(autoincrement())
+  email String 
   senha String
-  email String @unique
-  peso Float
-  altura Float
+  nome String
+  usuario Usuario?
+
+}
+
+model Perfil{
+  id Int @id @default(autoincrement())
+  idade String
+  peso String
+  altura String
   genero String
-  fator_atividade Float
-  imc IMC?
-  jantar Jantar?
-  cafe Cafe?
-  lanche_manha Lanche_manha?
-  almoco Almoco?
-  lanche_tarde Lanche_tarde?
-  exerSegunda ExerSegunda?
-  exerTerca ExerTerca?
-  exerQuarta ExerQuarta?
-  exerQuinta ExerQuinta?
-  exerSexta ExerSexta?
-  exerSabado ExerSabado?
-  exerDomingo ExerDomingo?
+  fatorAtividade String
+  usuario Usuario?
 }
 
 model IMC{
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   valor Float
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
 }
 
 
 
 model Jantar{
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
   nome_alimento String
   quantidade Float
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
-  
+  usuario Usuario?
   
 }
 
 model Cafe{
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
   nome_alimento String
   quantidade Float
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
-  
+  usuario Usuario?
+
 }
 
 model Lanche_manha{
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
   nome_alimento String
   quantidade Float
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
- 
+  usuario Usuario?
 }
 
 model Almoco{
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
   nome_alimento String
   quantidade Float
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
   
 }
 
 model Lanche_tarde{
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   proteina Float
   carboidrato Float
   gordura Float
   nome_alimento String
   quantidade Float
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
  
 }
 
 
 model ExerSegunda{ //exer_triceps
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
 }
 
 model ExerTerca{ //exer_deltoides
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
-  
+  usuario Usuario?
 }
 
 model ExerQuarta{ //exer_peitoral
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
+
 }
 
 model ExerQuinta{ //exer_gluteo
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
+ 
 }
 
 model ExerSexta{ //exer_coxa
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
+
 }
 
 model ExerSabado{ //exer_panturruilha
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
+
 }
 
 model ExerDomingo{ //exer_dorsal
   id Int @id @default(autoincrement())
-  id_usuario Int @unique
   nome String
   serie Int
   repeticao Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  usuario Usuario?
+ 
 }
 
 
