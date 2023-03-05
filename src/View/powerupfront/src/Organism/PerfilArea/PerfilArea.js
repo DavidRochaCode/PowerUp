@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
 
+
+
 export function PerfilArea(){
 
     const [idade, setIdade] = useState("");
@@ -44,13 +46,7 @@ export function PerfilArea(){
         
     }
 
-    const deletePerfil = (id) => {
-        console.log(id)
-        axios.delete(`http://localhost:3001/perfil/${id}`)
-
-        
-    }
-
+    const token = localStorage.getItem("powerup")
 
     useEffect(() => {
         axios.get("http://localhost:3001/perfil")

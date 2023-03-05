@@ -20,27 +20,29 @@ export function LoginAreas({title,subTitle,but}){
 
         const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (regex.test(userEmail)) {
-            let userInfo = {
-                senha: userPassword,
-                email: userEmail,
-              };
+          let userInfo = {
+            senha: userPassword,
+            email: userEmail,
+          };
           
               axios
                 .post("http://localhost:3001/login", userInfo)
                 .then(response => {
                   if (response.status === 200) {
                     console.log("usuário logado");
+                    const token = {token: response?.data?.token}
+                    localStorage.setItem("powerup", JSON.stringify(token))
                   }
                 })
                 .catch((err) => {
                   console.log(err);
                 });
-          console.log("Endereço de email válido.");
-        } else {
-          console.log("Endereço de email inválido.");
-        }
-        
-      }
+                console.log("Endereço de email válido.");
+              } else {
+                console.log("Endereço de email inválido.");
+              }
+              
+            }
 
     return(
         

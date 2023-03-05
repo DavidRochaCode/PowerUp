@@ -4,7 +4,11 @@ import { Headers } from "../../Organism/Headers.js/Headers.js";
 import { Footers } from "../../Organism/Footers/Footers.js";
 
 export function Home(){
+
+
+    
     return(
+        
         <div>
             <Headers/>
             <div>
@@ -14,5 +18,8 @@ export function Home(){
             </div>
             <Footers/>
         </div>
+
+    
     )
+    
 }
