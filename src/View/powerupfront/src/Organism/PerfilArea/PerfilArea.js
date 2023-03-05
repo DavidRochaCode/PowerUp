@@ -4,6 +4,8 @@ import { Inputs } from "../../Atomic/Input/Inputs";
 import { useEffect, useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
+import {Chart} from "react-google-charts"
+import BarChart from "./GraficoPerfil";
 
 export function PerfilArea(){
 
@@ -60,6 +62,9 @@ export function PerfilArea(){
             console.log("deu ruim")
         })
     }, [])
+
+   
+    
 
     return(
         <div className="grid grid-cols-12">
@@ -127,11 +132,12 @@ export function PerfilArea(){
                 <div className='w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
                     <p className="p-[5px] m-[10px]">
                         Grafico
-                    </p> 
+                    </p>
+                    <BarChart/>
                 </div>
 
                 <div className='w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
-                    <h1>Dados</h1>
+                    <h1>Dados-histórico</h1>
                     {perfil.map((user,key) => {
 
                         return(

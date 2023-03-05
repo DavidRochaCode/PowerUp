@@ -8,7 +8,7 @@ export function Home(){
         <div>
             <Headers/>
             <div>
-                <Link to='/login'>
+                <Link to=''>
                     <Buttons name="login"/>
                 </Link>
             </div>

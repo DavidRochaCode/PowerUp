@@ -12,11 +12,10 @@ function App() {
     <Router>
         <Container>
           <Routes>
-            <Route exact path='/' element={<Home/>}></Route>
-            <Route exact path='/login' element={<Login/>}></Route>
+            
+            <Route exact path='/' element={<Login/>}></Route>
             <Route exact path='/cadastro' element={<SingUp/>}></Route>
             <Route exact path='/perfil' element={<Perfil/>}></Route>
-            <Route exact path='/graficoPerfil' element={<GraficoPerfil/>}></Route>
             </Routes>
         </Container>
         
