@@ -82,7 +82,7 @@ export function SingAreas({title,subTitle,but1,but2}){
                         </div>
 
                         <div className="my-[20px]">
-                            <Link to='/login'>
+                            <Link to='/'>
                                 <BackButtons name={but2}/>
                             </Link>
                        
