@@ -25,7 +25,7 @@ ChartJS.register(
 
 
 
-export function BarChart({peso}){
+export function BarChart({importData}){
 
     const options = {
         responsive: true,
@@ -42,18 +42,26 @@ export function BarChart({peso}){
     
     
     
-    const labels = ["70","80","90","120"];
+    const labels = ["10","20","30","40","50","60","70","80","90","100"];
     
     const data = {
         labels,
         datasets: [
             {
-                label: 'Peso',
-                data: [10,20,30,40,50,60,70,80,90,110,110,120,130,140,150,160,170,180,190,200],
+                label: 'Masc',
+                data: [10,20,30,40,50,60,70],
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'red',
                 borderWidth: 1
             },
+            {
+                label: 'Femi',
+                data: [10,20,30,40,50,60,70],
+                backgroundColor: 'rgba(99, 255, 132, 0.5)',
+                borderColor: 'green',
+                borderWidth: 1
+            },
+        
             
         ],
     };
