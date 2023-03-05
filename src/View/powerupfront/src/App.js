@@ -16,7 +16,7 @@ function App() {
             <Route exact path='/' element={<Login/>}></Route>
             <Route exact path='/cadastro' element={<SingUp/>}></Route>
             <Route exact path='/perfil' element={<Perfil/>}></Route>
-            </Routes>
+             </Routes>
         </Container>
         
     </Router>

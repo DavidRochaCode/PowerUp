@@ -11,9 +11,8 @@ import {
 } from 'chart.js';
 
 import { Bar } from 'react-chartjs-2';
-import { useEffect, useState } from "react";
-import axios from "axios";
-import response from "react";
+
+
 
 ChartJS.register(
     CategoryScale,
@@ -24,41 +23,42 @@ ChartJS.register(
     Legend
 );
 
-const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
+
+
+export function BarChart({peso}){
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: false,
+                text: 'Dataset',
+            },
         },
-        title: {
-            display: false,
-            text: 'Dataset',
-        },
-    },
-};
-
-
-
-const labels = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
-
-export const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Peso',
-            data: [1,2,3,4,5,6,7],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            borderColor: 'red',
-            borderWidth: 1
-        },
-        
-    ],
-};
-
-const BarChart = () => {
+    };
     
+    
+    
+    const labels = ["70","80","90","120"];
+    
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Peso',
+                data: [10,20,30,40,50,60,70,80,90,110,110,120,130,140,150,160,170,180,190,200],
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'red',
+                borderWidth: 1
+            },
+            
+        ],
+    };
 
-    return <Bar options={options} data={data} />;
+
+    return <Bar options={options} data={data}/>;
 }
 
-export default BarChart;

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
 import {Chart} from "react-google-charts"
-import BarChart from "./GraficoPerfil";
+import {BarChart} from "./GraficoPerfil";
+import { Grafict } from "./Grafict";
 
 
 
@@ -23,6 +24,8 @@ export function PerfilArea(){
     const handleGeneroChange = (e) => setGenero(e.target.value);
     const handleFatorChange = (e) => setFator(e.target.value);
     const [perfil, setPerfil] = useState([]);
+
+    const pesoData = perfil.map((peso)=>(peso.peso))
 
     function addPerfil(e){
 
@@ -129,8 +132,6 @@ export function PerfilArea(){
                     <p className="p-[5px] m-[10px]">
                         Grafico
                     </p>
-                    <div>
-                    </div>
                     <BarChart/>
                 </div>
 
