@@ -1,6 +1,7 @@
 const { response } = require("express")
 const jwt = require ("jsonwebtoken")
 
+
 exports.veryToken = async(req, res, next) => {
     const token = req.headers.authorization
 
@@ -12,7 +13,18 @@ exports.veryToken = async(req, res, next) => {
 
     try {
         const replace = token.replace("Bearer ", "")
-        const decoded = jwt.verify(replace, process.env.TOKEN_KEY, data)
+        const decoded = jwt.verify(replace, process.env.TOKEN_KEY)
+
+        // acessando o objeto decodificado
+        const userId = decoded.id;
+        const userEmail = decoded.email;
+        
+        module.exports = userId;
+        module.exports = userEmail;
+
+        console.log("UserId:", userId);
+        console.log("UserEmail:", userEmail);
+
         next()
     } catch (error) {
         return res.status(401).send({message: "Credenciais inválidas"})

@@ -1,7 +1,5 @@
 import bcrypt from "bcrypt"
 import{create_conta, getAll, getById,updateConta, deleteConta} from '../repositories/conta.repository'
-const{veryfyToken} = require("../middlewares/autenticacao")
-
 
 export const create = async(req,res)=>{
     try {
@@ -17,7 +15,10 @@ export const create = async(req,res)=>{
 export const get = async (req,res) =>{
     try {
         const conta = await getAll()
-        res.status(200).send(conta)
+        const reponse = {conta}
+
+        res.status(200).send(reponse)
+        
     } catch (error) {
         res.status(400).send(error)
     }

@@ -30,8 +30,8 @@ export function LoginAreas({title,subTitle,but}){
                 .then(response => {
                   if (response.status === 200) {
                     console.log("usuário logado");
-                    const token = {token: response?.data?.token}
-                    localStorage.setItem("powerup", JSON.stringify(token))
+                    /* const token = {token: response?.data?.token}
+                    localStorage.setItem("powerup", JSON.stringify(token)) */
                   }
                 })
                 .catch((err) => {
