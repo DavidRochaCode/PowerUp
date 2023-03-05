@@ -50,7 +50,7 @@ model Usuario{
 
 model Conta{
   id Int @id @default(autoincrement())
-  email String 
+  email String @unique
   senha String
   nome String
   usuario Usuario?

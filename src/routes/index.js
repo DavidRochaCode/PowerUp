@@ -14,6 +14,7 @@ import rotas_exer_sabado from "./exer_sabado.routes";
 import rotas_exer_domingo from "./exer_domingo.routes";
 import rotas_perfil from "./perfil.routes";
 import rotas_conta from "./conta.routes";
+import { autenticacaoRoutes } from "./autenticacao.routes";
 
 
 
@@ -34,6 +35,7 @@ const rotas = app =>{
     rotas_exer_domingo(app)
     rotas_perfil(app)
     rotas_conta(app)
+    autenticacaoRoutes(app)
     
 }
 

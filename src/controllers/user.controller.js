@@ -1,9 +1,11 @@
 import{create_usuario, getAll, getById,updateUser, deleteUser} from '../repositories/usuario.repository'
 import bcrypt from 'bcrypt'
+import { userValidation } from '../validations/usuario'
 
 export const create = async(req,res)=>{
     try {
-        const hashPassword = await bcrypt.hash(req.body.senha, 10)
+        await userValidation.validate(req.body)
+        const hashPassword = bcrypt.hashSync(req.body.senha, 10)
         req.body.senha = hashPassword
         const usuario = await create_usuario(req.body)
         res.status(200).send(usuario)
