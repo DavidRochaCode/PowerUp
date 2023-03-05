@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
+import{useNavigate} from "react-router-dom"
 
 import { useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react"
 
 
-
 export function LoginAreas({title,subTitle,but}){
-    
+    const navigate = useNavigate()
     const [userEmail, addUserEmail] = useState("");
     const [userPassword, addUserPassword] = useState("");
 
@@ -30,8 +30,10 @@ export function LoginAreas({title,subTitle,but}){
                 .then(response => {
                   if (response.status === 200) {
                     console.log("usuário logado");
-                    /* const token = {token: response?.data?.token}
-                    localStorage.setItem("powerup", JSON.stringify(token)) */
+                    const token = {token: response?.data?.token}
+                    localStorage.setItem("powerup", JSON.stringify(token))
+                    /* console.log(token) */
+                    navigate("/Home");
                   }
                 })
                 .catch((err) => {

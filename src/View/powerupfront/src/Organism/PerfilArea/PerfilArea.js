@@ -9,8 +9,8 @@ import {BarChart} from "./GraficoPerfil";
 import { Grafict } from "./Grafict";
 
 
-
 export function PerfilArea(){
+
 
     const [idade, setIdade] = useState("");
     const [peso, setPeso] = useState("");
@@ -38,10 +38,17 @@ export function PerfilArea(){
             genero: genero,
             fatorAtividade: fator
         }
+        const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
+        const config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
 
-        axios.post("http://localhost:3001/perfil", perfilInfo)
+        axios.post("http://localhost:3001/perfil", perfilInfo, config)
                 .then(response => {
                     if(response.status === 200){
+                        alert("Informações cadastradas")
                         console.log("cadastrado")
                     }
                 }).catch((err) => {
@@ -51,16 +58,23 @@ export function PerfilArea(){
         
     }
 
-    const token = localStorage.getItem("powerup")
-
     useEffect(() => {
-        axios.get("http://localhost:3001/perfil")
-        .then((response) => {
+        const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
+        const config = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+        axios.get("http://localhost:3001/perfil", config)
+          .then((response) => {
             setPerfil(response.data);
-        }).catch(() => {
-            console.log("deu ruim")
-        })
-    }, [])
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Você não tem acesso. Faça login")
+          });
+    }, []);
+
+
+    
 
    
     

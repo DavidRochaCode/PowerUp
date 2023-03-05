@@ -19,11 +19,12 @@ exports.veryToken = async(req, res, next) => {
         const userId = decoded.id;
         const userEmail = decoded.email;
         
-        module.exports = userId;
-        module.exports = userEmail;
+      /*   module.exports = userId;
+        module.exports = userEmail; */
 
         console.log("UserId:", userId);
         console.log("UserEmail:", userEmail);
+        
 
         next()
     } catch (error) {

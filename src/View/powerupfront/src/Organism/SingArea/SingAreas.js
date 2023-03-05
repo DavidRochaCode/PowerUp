@@ -20,6 +20,9 @@ export function SingAreas({title,subTitle,but1,but2}){
   const handleUserPasswordChange = (event) => setUserPassword(event.target.value);
 
   function addUser() {
+    if(userEmail || userEmail || userPassword === ''){
+      alert("Preencha todos os campos")
+    }
 
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (regex.test(userEmail)) {
@@ -33,15 +36,17 @@ export function SingAreas({title,subTitle,but1,but2}){
             .post("http://localhost:3001/conta", userInfo)
             .then(response => {
               if (response.status === 200) {
-                console.log("usuário inserido");
+                console.log("usuário cadastrado");
+                alert("Você foi cadastrado")
               }
             })
             .catch((err) => {
               console.log(err);
             });
-      console.log("Endereço de email válido.");
+      console.log("Endereço de email correspondo à formatação.");
     } else {
       console.log("Endereço de email inválido.");
+      alert("Endereço de email inválido.")
     }
     
   }

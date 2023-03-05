@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt"
 import{create_conta, getAll, getById,updateConta, deleteConta} from '../repositories/conta.repository'
+const jwt = require ("jsonwebtoken")
+
 
 export const create = async(req,res)=>{
     try {
@@ -14,8 +16,15 @@ export const create = async(req,res)=>{
 
 export const get = async (req,res) =>{
     try {
+
+        const token = req.headers.authorization
+        const replace = token.replace("Bearer ", "")
+        const decoded = jwt.verify(replace, process.env.TOKEN_KEY)
+        const userId = decoded.id;
+        const userEmail = decoded.email;
+
         const conta = await getAll()
-        const reponse = {conta}
+        const reponse = {conta, userId, userEmail}
 
         res.status(200).send(reponse)
         
