@@ -11,7 +11,11 @@ function Barchart() {
     const pesovalue=[];
 
     const getPesorecord= async()=>{
-      const dataReq= await fetch("http://localhost:3001/perfil");
+      const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+      const dataReq= await fetch("http://localhost:3001/perfil", config);
       const dataRes= await dataReq.json();
       console.log(dataRes);
 
