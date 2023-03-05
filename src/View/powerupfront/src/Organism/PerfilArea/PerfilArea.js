@@ -6,7 +6,8 @@ import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
 import {Chart} from "react-google-charts"
 import {BarChart} from "./GraficoPerfil";
-import { Grafict } from "./Grafict";
+import Grafict from "./Grafict";
+
 
 
 export function PerfilArea(){
@@ -142,14 +143,13 @@ export function PerfilArea(){
     </div>
     <div className="col-span-6">
                 
-                <div className='w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
-                    <p className="p-[5px] m-[10px]">
-                        Grafico
-                    </p>
-                    <BarChart/>
+                <div className='w-[600px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
+                    <p className="p-[5px] m-[10px]">Gráficos</p >
+                    <p className="p-[5px] m-[10px]">Histórico de peso</p>
+                    <Grafict/>
                 </div>
 
-                <div className='w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
+                <div className='w-[600px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
                     <h1>Dados-histórico</h1>
                     {perfil.map((user,key) => {
 
