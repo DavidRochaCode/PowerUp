@@ -133,6 +133,8 @@ export function PerfilArea(){
                     <p className="p-[5px] m-[10px]">
                         Grafico
                     </p>
+                    <div>
+                    </div>
                     <BarChart/>
                 </div>
 

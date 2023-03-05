@@ -11,6 +11,9 @@ import {
 } from 'chart.js';
 
 import { Bar } from 'react-chartjs-2';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import response from "react";
 
 ChartJS.register(
     CategoryScale,
@@ -34,14 +37,16 @@ const options = {
     },
 };
 
-const labels = ['Janeiro', 'Fevereiro', 'Março', 'April', 'Maio', 'Junho', 'Julho'];
+
+
+const labels = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
 
 export const data = {
     labels,
     datasets: [
         {
             label: 'Peso',
-            data: labels.map((() => Math.floor(Math.random() * 100))),
+            data: [1,2,3,4,5,6,7],
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
             borderColor: 'red',
             borderWidth: 1
@@ -51,6 +56,8 @@ export const data = {
 };
 
 const BarChart = () => {
+    
+
     return <Bar options={options} data={data} />;
 }
 
