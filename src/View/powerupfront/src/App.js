@@ -1,6 +1,5 @@
-import { GraficoPerfil } from "./Organism/PerfilArea/GraficoPerfil";
+
 import { Container } from "./Pages/Container.js/Container";
-import { Home } from "./Pages/Home/Home";
 import { Login } from "./Templates/Login/Login";
 import { Perfil } from "./Templates/Perfil/Perfil";
 import { SingUp } from "./Templates/SingUp/SingUp";
