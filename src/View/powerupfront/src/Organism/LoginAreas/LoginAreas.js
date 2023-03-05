@@ -2,7 +2,46 @@ import { Link } from "react-router-dom";
 import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
 
+import { useState } from "react";
+import axios, { isCancel, AxiosError } from "axios";
+import response from "react"
+
+
+
 export function LoginAreas({title,subTitle,but}){
+    
+    const [userEmail, addUserEmail] = useState("");
+    const [userPassword, addUserPassword] = useState("");
+
+    const handleUserEmail = (event) => addUserEmail(event.target.value);
+    const handleUserPassword = (event) => addUserPassword(event.target.value);
+
+    function addUser() {
+
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (regex.test(userEmail)) {
+            let userInfo = {
+                senha: userPassword,
+                email: userEmail,
+              };
+          
+              axios
+                .post("http://localhost:3001/login", userInfo)
+                .then(response => {
+                  if (response.status === 200) {
+                    console.log("usuário logado");
+                  }
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+          console.log("Endereço de email válido.");
+        } else {
+          console.log("Endereço de email inválido.");
+        }
+        
+      }
+
     return(
         
         <div className='col-span-12  h-max  mx-[80px] flex justify-center items-center'>
@@ -16,14 +55,14 @@ export function LoginAreas({title,subTitle,but}){
                 <div className="my-[20px]">
                     <form action="" method="">
                         <label htmlFor="" className="text-[#8854d0]">Email do usuário:</label>
-                        <Inputs type="Email" place="Email:" name="" id="" func=""/>
+                        <Inputs type="Email" place="Email:" name="" id="" func={handleUserEmail}/>
                     </form>
                 </div>
 
                 <div className="my-[20px]">
                     <form action="" method="">  
                         <label htmlFor="" className="text-[#8854d0]">Senha:</label>
-                        <Inputs type="password" place="Senha:" name="" id="" func=""/>
+                        <Inputs type="password" place="Senha:" name="" id="" func={handleUserPassword}/>
                     </form>
                 </div>
 
@@ -34,7 +73,7 @@ export function LoginAreas({title,subTitle,but}){
                 </div>
 
                 <div className="my-[20px]">  
-                        <Buttons name={but} id="" func=""/>
+                        <Buttons name={but} id="" func={addUser}/>
                 </div>   
 
             </div>
