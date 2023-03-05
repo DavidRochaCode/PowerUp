@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
 
@@ -18,6 +18,7 @@ export function PerfilArea(){
     const handleAlturaChange = (e) => setAltura(e.target.value);
     const handleGeneroChange = (e) => setGenero(e.target.value);
     const handleFatorChange = (e) => setFator(e.target.value);
+    const [perfil, setPerfil] = useState([]);
 
     function addPerfil(e){
 
@@ -42,6 +43,23 @@ export function PerfilArea(){
         
         
     }
+
+    const deletePerfil = (id) => {
+        console.log(id)
+        axios.delete(`http://localhost:3001/perfil/${id}`)
+
+        
+    }
+
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/perfil")
+        .then((response) => {
+            setPerfil(response.data);
+        }).catch(() => {
+            console.log("deu ruim")
+        })
+    }, [])
 
     return(
         <div className="grid grid-cols-12">
@@ -104,14 +122,31 @@ export function PerfilArea(){
         </div>
             
     </div>
-    <div className="col-span-6 flex flex-row">
-                <div>
-                    <p>Dados</p>
+    <div className="col-span-6">
+                
+                <div className='w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
+                    <p className="p-[5px] m-[10px]">
+                        Grafico
+                    </p> 
                 </div>
-                <div>
-                    <p>
-                        Graficoo
-                    </p>
+
+                <div className='w-[400px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
+                    <h1>Dados</h1>
+                    {perfil.map((user,key) => {
+
+                        return(
+                            <><div className="my-[20px] shadow-inner">
+                                
+                                <p className="p-[5px] m-[10px]">Idade:{user.idade}</p>
+                                <p className="p-[5px] m-[10px]">Peso:{user.peso}</p>
+                                <p className="p-[5px] m-[10px]">Altura:{user.altura}</p>
+                                <p className="p-[5px] m-[10px]">Fator:{user.fatorAtividade}</p>
+                                
+                            </div><hr></hr></>
+                        )
+
+                    })}
+                    
                 </div>
             </div>
     </div>
