@@ -20,9 +20,9 @@ export function SingAreas({title,subTitle,but1,but2}){
   const handleUserPasswordChange = (event) => setUserPassword(event.target.value);
 
   function addUser() {
-    if(userEmail || userEmail || userPassword === ''){
+    if(userEmail === '' || userName === '' || userPassword === ''){
       alert("Preencha todos os campos")
-    }
+    }else{
 
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (regex.test(userEmail)) {
@@ -48,6 +48,7 @@ export function SingAreas({title,subTitle,but1,but2}){
       console.log("Endereço de email inválido.");
       alert("Endereço de email inválido.")
     }
+  }
     
   }
     return(
