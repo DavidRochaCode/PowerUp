@@ -2,6 +2,7 @@ import{create_usuario, getAll, getById,updateUser, deleteUser} from '../reposito
 import bcrypt from 'bcrypt'
 import { userValidation } from '../validations/usuario'
 
+
 export const create = async(req,res)=>{
     try {
         await userValidation.validate(req.body)

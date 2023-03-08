@@ -5,6 +5,7 @@ const jwt = require ("jsonwebtoken")
 
 export const create = async(req,res)=>{
     try {
+        
         const hashPassword = await bcrypt.hash(req.body.senha, 10)
         req.body.senha = hashPassword 
         const conta = await create_conta(req.body)

@@ -20,6 +20,7 @@ export function SingAreas({title,subTitle,but1,but2}){
   const handleUserPasswordChange = (event) => setUserPassword(event.target.value);
 
   function addUser() {
+  
     if(userEmail === '' || userName === '' || userPassword === ''){
       alert("Preencha todos os campos")
     }else{
