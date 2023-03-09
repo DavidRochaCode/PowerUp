@@ -1,4 +1,5 @@
 import { Inputs } from "../../Atomic/Input/Inputs";
+import { Buttons } from "../../Atomic/Buttons/Buttons";
 
 export function DietaForm({name,nomeFunc,quantidadeFunc,proteinaFunc,carboidratoFunc,gorduraFunc, butName, butId,butFunc}){
     return(
@@ -24,6 +25,9 @@ export function DietaForm({name,nomeFunc,quantidadeFunc,proteinaFunc,carboidrato
                 <div>
                     <p>Gordura</p>
                     <Inputs type="text" place="Gordura:" id="" func={gorduraFunc}/>
+                </div>
+                <div>
+                    <Buttons name="Cadastrar" id="" func= {butFunc}/>
                 </div>
                 
             </form>

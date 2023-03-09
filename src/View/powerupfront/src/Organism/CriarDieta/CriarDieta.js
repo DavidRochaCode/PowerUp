@@ -145,9 +145,7 @@ export function CriarDieta(){
                         <DietaForm name="Janta" nomeFunc={handleNomeJanta} quantidadeFunc={handleQtJanta} proteinaFunc={handleQtJantaProt} carboidratoFunc={handleQtJantaCarb} gorduraFunc={handleQtJantaAGord} />
                     </div>
                 </div>
-                <div>
-                    <Buttons name="Cadastrar" id="" func= {addRefeicao}/>
-                </div>
+                
             </div>
             <div>
                 <Link to="/verDieta">
