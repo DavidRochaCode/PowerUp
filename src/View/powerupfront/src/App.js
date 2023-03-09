@@ -1,4 +1,5 @@
 import{Home} from "../src/Pages/Home/Home"
+import { VerDieta } from "./Organism/VerDieta/VerDieta";
 import { Container } from "./Pages/Container.js/Container";
 import { Dieta } from "./Templates/Dieta/Dieta";
 import { Login } from "./Templates/Login/Login";
@@ -18,6 +19,7 @@ function App() {
             <Route exact path='/cadastro' element={<SingUp/>}></Route>
             <Route exact path='/perfil' element={<Perfil/>}></Route>
             <Route exact path='/dieta' element={<Dieta/>}></Route>
+            <Route exact path='/verDieta' element={<VerDieta/>}></Route>
              </Routes>
         </Container>
         
