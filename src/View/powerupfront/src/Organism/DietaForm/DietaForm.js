@@ -1,4 +1,3 @@
-import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
 
 export function DietaForm({name,nomeFunc,quantidadeFunc,proteinaFunc,carboidratoFunc,gorduraFunc, butName, butId,butFunc}){
