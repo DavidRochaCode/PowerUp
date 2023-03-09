@@ -9,20 +9,23 @@ export function CriarDieta(){
                 <p>Dieta</p>
                 <div className="grid grid-cols-10 gap-4">
                     <div className="col-span-2">
-                        <DietaForm name="Café" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc="" butFunc=""/>
+                        <DietaForm name="Café" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc=""/>
                     </div>
                     <div className="col-span-2">
-                        <DietaForm name="Lanche Manhã" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc="" butFunc=""/>
+                        <DietaForm name="Lanche Manhã" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc=""/>
                     </div>
                     <div className="col-span-2">
-                        <DietaForm name="Almoço" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc="" butFunc=""/>
+                        <DietaForm name="Almoço" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc=""/>
                     </div>
                     <div className="col-span-2">
-                        <DietaForm name="Lanche Tarde" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc="" butFunc=""/>
+                        <DietaForm name="Lanche Tarde" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc=""/>
                     </div>
                     <div className="col-span-2">
-                        <DietaForm name="Janta" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc="" butFunc=""/>
+                        <DietaForm name="Janta" nomeFunc="" quantidadeFunc="" proteinaFunc="" carboidratoFunc="" gorduraFunc=""/>
                     </div>
+                </div>
+                <div>
+                    <Buttons name="Cadastrar" id="" func=""/>
                 </div>
             </div>
             <div>
