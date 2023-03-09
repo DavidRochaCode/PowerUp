@@ -12,6 +12,10 @@ datasource db {
 
 
 model Usuario{
+
+  // no token eu posso passar o id do usuário, e não da conta
+  // dessa forma, eu puxaria todos os dados do usuário.
+
   id Int @id @default(autoincrement())
   idPerfil Int @unique
   idConta Int @unique

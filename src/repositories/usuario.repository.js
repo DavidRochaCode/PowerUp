@@ -1,5 +1,12 @@
 import { prisma } from "../services/prisma";
 
+
+
+//dessa tabela só vou usar o getById para fazer um inner join
+
+
+
+
 //inserir na tabela
 
 export const create_usuario = async(data) =>{
