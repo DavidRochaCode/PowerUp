@@ -81,54 +81,54 @@ model IMC{
 
 model Jantar{
   id Int @id @default(autoincrement())
-  proteina Float
-  carboidrato Float
-  gordura Float
-  nome_alimento String
-  quantidade Float
+  proteina String?
+  carboidrato String?
+  gordura String?
+  nome_alimento String?
+  quantidade String?
   usuario Usuario?
   
 }
 
 model Cafe{
   id Int @id @default(autoincrement())
-  proteina Float
-  carboidrato Float
-  gordura Float
-  nome_alimento String
-  quantidade Float
+  proteina String?
+  carboidrato String?
+  gordura String?
+  nome_alimento String?
+  quantidade String?
   usuario Usuario?
 
 }
 
 model Lanche_manha{
   id Int @id @default(autoincrement())
-  proteina Float
-  carboidrato Float
-  gordura Float
-  nome_alimento String
-  quantidade Float
+  proteina String?
+  carboidrato String?
+  gordura String?
+  nome_alimento String?
+  quantidade String?
   usuario Usuario?
 }
 
 model Almoco{
   id Int @id @default(autoincrement())
-  proteina Float
-  carboidrato Float
-  gordura Float
-  nome_alimento String
-  quantidade Float
+  proteina String?
+  carboidrato String?
+  gordura String?
+  nome_alimento String?
+  quantidade String?
   usuario Usuario?
   
 }
 
 model Lanche_tarde{
   id Int @id @default(autoincrement())
-  proteina Float
-  carboidrato Float
-  gordura Float
-  nome_alimento String
-  quantidade Float
+  proteina String?
+  carboidrato String?
+  gordura String?
+  nome_alimento String?
+  quantidade String?
   usuario Usuario?
  
 }
