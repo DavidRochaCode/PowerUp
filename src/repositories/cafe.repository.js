@@ -46,3 +46,8 @@ export const deleteCafe = async(id) => {
     })
     return
 }
+
+export const deleteTudo = async() => {
+    await prisma.cafe.deleteMany({})
+    return deleteTudo
+}

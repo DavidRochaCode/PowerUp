@@ -1,4 +1,4 @@
-import{create_almoco,getAll, getById,updateAlmoco, deleteAlmoco} from '../repositories/almoco.repository'
+import{create_almoco,getAll, getById,updateAlmoco, deleteAlmoco, deleteTudo} from '../repositories/almoco.repository'
 
 export const create = async(req,res)=>{
     try {
@@ -44,4 +44,13 @@ export const remove = async(req, res) => {
         res.status(400).send(error)
     }
     
+}
+
+export const deleteAll = async(req, res) =>{
+    try{
+        await deleteTudo()
+        res.status(200).send("tudo deletado")
+    }catch(error){
+        console.log(error)
+    }
 }

@@ -1,4 +1,4 @@
-import {create,get,getId, update, remove} from '../controllers/jantar.controller'
+import {create,get,getId, update, remove, deleteAll} from '../controllers/jantar.controller'
 
 const rotas_jantar = app =>{
     //inserir informação
@@ -10,6 +10,7 @@ const rotas_jantar = app =>{
     app.put("/jantar/:id", update)
     //deletar
     app.delete("/jantar/:id", remove)
+    app.delete("/jantar-delete", deleteAll)
 }
 
 export default rotas_jantar

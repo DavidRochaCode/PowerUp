@@ -46,3 +46,8 @@ export const deleteLanche = async(id) => {
     })
     return
 }
+
+export const deleteTudo = async() => {
+    await prisma.lanche_manha.deleteMany({})
+    return deleteTudo
+}

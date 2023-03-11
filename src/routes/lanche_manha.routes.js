@@ -1,4 +1,4 @@
-import {create, get,getId, update, remove} from '../controllers/lanche_manha.controller'
+import {create, get,getId, update, remove, deleteAll} from '../controllers/lanche_manha.controller'
 
 const rotas_lache_manha = app =>{
     //inserir informação
@@ -10,6 +10,7 @@ const rotas_lache_manha = app =>{
     app.put("/lanche-da-manha/:id", update)
     //deletar
     app.delete("/lanche-da-manha/:id", remove)
+    app.delete("/lanche-da-manha-delete",deleteAll)
 }
 
 export default rotas_lache_manha

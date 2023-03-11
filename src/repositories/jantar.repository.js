@@ -46,3 +46,8 @@ export const deleteJantar = async(id) => {
     })
     return
 }
+
+export const deleteTudo = async() => {
+    await prisma.jantar.deleteMany({})
+    return deleteTudo
+}

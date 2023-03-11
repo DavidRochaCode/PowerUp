@@ -1,4 +1,4 @@
-import {create,get,getId, update, remove} from '../controllers/almoco.controller'
+import {create,get,getId, update, remove, deleteAll} from '../controllers/almoco.controller'
 
 const rotas_almoco = app =>{
     //inserir informação
@@ -10,6 +10,7 @@ const rotas_almoco = app =>{
     app.put("/almoco/:id", update)
     //deletar
     app.delete("/almoco/:id", remove)
+    app.delete("/almoco-delete", deleteAll)
 }
 
 export default rotas_almoco
