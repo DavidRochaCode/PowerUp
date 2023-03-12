@@ -4,8 +4,10 @@ import { DietaForm } from "../DietaForm/DietaForm";
 import { useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react"
+import{userId} from "./getId"
 
 export function CriarDieta(){
+  
 
     const [nomeCafe, setNomeCafe] = useState("");
     const [quantidadeCafe, setQuantidadeCafe] = useState("");
@@ -68,13 +70,13 @@ export function CriarDieta(){
     const handleQtJantaCarb = (event) => setQJantaCarb(event.target.value);
     const handleQtJantaAGord = (event) => setQJantaGord(event.target.value);
 
-
     let cafe = {
         proteina: quantidadeCafeProteina,
         carboidrato: quantidadeCafeCarb,
         gordura: quantidadeCafeGord,
         nome_alimento: nomeCafe,
         quantidade: quantidadeCafe,
+        id_conta: userId,
     }
 
 
@@ -84,6 +86,7 @@ export function CriarDieta(){
         gordura: quantidadeLancheMGord,
         nome_alimento: nomeLancheM,
         quantidade: quantidadeLancheM,
+        id_conta: userId,
     }
 
     let almoco = {
@@ -92,6 +95,7 @@ export function CriarDieta(){
         gordura: quantidadeAlmocoGord,
         nome_alimento: nomeAlmoco,
         quantidade: quantidadeAlmoco,
+        id_conta: userId,
     }
 
     let lancheTarde = {
@@ -100,6 +104,7 @@ export function CriarDieta(){
         gordura: quantidadeLancheTGord,
         nome_alimento: nomeLancheT,
         quantidade: quantidadeLancheT,
+        id_conta: userId,
     }
 
     let jantar = {
@@ -108,10 +113,14 @@ export function CriarDieta(){
         gordura: quantidadeJantaGord,
         nome_alimento: nomeJanta,
         quantidade: quantidadeJanta,
+        id_conta: userId,
     }
 
+
+  
+    
     function addCafe(event){
-        //event.preventDefault()
+        event.preventDefault()
         axios
             .post("http://localhost:3001/cafe", cafe)
             .then(response => {

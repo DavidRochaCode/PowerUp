@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 
 
 export function VerDieta(){
+    
+
+    axios.defaults.headers.common['Authorization'] = `Bearer `
 
     const [ lanchesTarde, getLanchesTarde] = useState([])
     const[almoco, getAlmoco] = useState([])
@@ -153,6 +156,9 @@ export function VerDieta(){
                     axios.delete(`http://localhost:3001/jantar-delete`)
                     axios.delete(`http://localhost:3001/lanche-da-tarde-delete`)
                     axios.delete(`http://localhost:3001/lanche-da-manha-delete`)
+                    // eslint-disable-next-line no-restricted-globals
+                    location.reload()
+                    
                 }} /> 
 
                 <Buttons name="Gerar PDF"></Buttons>
