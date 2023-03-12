@@ -4,7 +4,7 @@ import { DietaForm } from "../DietaForm/DietaForm";
 import { useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react"
-import{userId} from "./getId"
+const{userId} = require('./getId')
 
 export function CriarDieta(){
   
@@ -178,6 +178,7 @@ export function CriarDieta(){
     }
 
     function addJantar(){
+      
         axios
             .post("http://localhost:3001/jantar", jantar)
             .then(response => {

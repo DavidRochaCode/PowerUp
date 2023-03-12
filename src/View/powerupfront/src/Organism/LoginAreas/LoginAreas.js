@@ -44,9 +44,14 @@ export function LoginAreas({title,subTitle,but}){
               } else {
                 console.log("Endereço de email inválido.");
               }
-              
-            }
-
+      //Toda vez que um usuário é autenticado, faz-se necessário recarregar a página, para o token antigo sair
+      setTimeout(function(){
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+        }, 500); // Recarrega a página após 3 segundos (3000 milissegundos)  
+    }
+            
+                    
     return(
         
         <div className='col-span-12  h-max  mx-[80px] flex justify-center items-center'>
