@@ -1,6 +1,7 @@
 import {create,get,getId, update, remove, deleteAll} from '../controllers/cafe.controller'
 
 const rotas_cafe = app =>{
+
     //inserir informação
     app.post("/cafe", create)
     //listar
