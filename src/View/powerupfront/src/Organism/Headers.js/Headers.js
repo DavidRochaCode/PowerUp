@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { OutButton } from "../../Atomic/Buttons/OutButton";
+
 
 export function Headers(){
     return(
@@ -25,7 +27,11 @@ export function Headers(){
                             <p>Suplementos</p>
                         </Link>
                     </li>
+                    <li className="ml-[20px]">
+                        <OutButton name="Logout" func=""/>
+                    </li>
                 </ul>
+                
            </div>
     
     )

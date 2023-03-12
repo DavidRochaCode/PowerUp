@@ -75,7 +75,7 @@ export function VerDieta(){
             </div>
            <div className="flex flex-col items-center justify-center">
             <div className=" w-max h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
-                        <p>cafe:</p>
+                        <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Cafe:</p>
         
                     {cafe.map((cafe,key) =>{
                     return(
@@ -91,7 +91,7 @@ export function VerDieta(){
                     })}
 
                 <br></br>
-                <p>Lanche da Manhã:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Lanche da Manhã:</p>
                     {lanchesManha.map((lanchesManha,key) =>{
                     return(
                         <p>{
@@ -106,7 +106,7 @@ export function VerDieta(){
                     })}
 
                 <br></br>
-                <p>Almoco:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Almoco:</p>
                     {almoco.map((almoco,key) =>{
                     return(
                         <p>{
@@ -120,7 +120,7 @@ export function VerDieta(){
                     )
                 })}
                 <br></br>
-                <p>Lanche da Tarde:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Lanche da Tarde:</p>
                 {lanchesTarde.map((lanche,key) =>{
                 return(
                     <p>{
@@ -134,7 +134,7 @@ export function VerDieta(){
                 )
             })}
                 <br></br>
-                <p>Jantar:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Jantar:</p>
 
                     {janta.map((janta,key) =>{
                     return(
@@ -149,19 +149,24 @@ export function VerDieta(){
                     )
                     })}
                     <br></br>
-            
-                <Buttons name="Deletar" func={()=>{
-                    axios.delete(`http://localhost:3001/cafe-delete`)
-                    axios.delete(`http://localhost:3001/almoco-delete`)
-                    axios.delete(`http://localhost:3001/jantar-delete`)
-                    axios.delete(`http://localhost:3001/lanche-da-tarde-delete`)
-                    axios.delete(`http://localhost:3001/lanche-da-manha-delete`)
-                    // eslint-disable-next-line no-restricted-globals
-                    location.reload()
+                <div className="flex flex-col content-center items-center">
+                    <div className="my-[20px]">
+                        <Buttons name="Deletar" func={()=>{
+                            axios.delete(`http://localhost:3001/cafe-delete`)
+                            axios.delete(`http://localhost:3001/almoco-delete`)
+                            axios.delete(`http://localhost:3001/jantar-delete`)
+                            axios.delete(`http://localhost:3001/lanche-da-tarde-delete`)
+                            axios.delete(`http://localhost:3001/lanche-da-manha-delete`)
+                            // eslint-disable-next-line no-restricted-globals
+                            location.reload()
                     
-                }} /> 
+                        }} /> 
+                    </div>
+                    
 
-                <Buttons name="Gerar PDF"></Buttons>
+                    <Buttons name="Gerar PDF"></Buttons>
+                </div>
+                
             </div>
 
         
