@@ -1,4 +1,4 @@
-import{create_jantar, getAll, getById,updateJantar, deleteJantar, deleteTudo} from '../repositories/jantar.repository'
+import{create_jantar, getAll, getById,updateJantar, deleteJantar, deleteTudo, getFromUser} from '../repositories/jantar.repository'
 
 export const create = async(req,res)=>{
     try {
@@ -18,14 +18,33 @@ export const get = async (req,res) =>{
     }
 }
 
-export const getId = async(req,res) => {
+/* export const getId = async(req,res) => {
     try {
         const jantar = await getById(Number(req.params.id))
         res.status(200).send(jantar)
     } catch (error) {
         res.status(400).send(error)
     }
+} */
+
+export const getByUser = async(req,res) =>{
+    try {
+        const jantar = await getFromUser(Number(req.params.id_conta))
+        res.status(200).send(jantar)
+    } catch (error) {
+        res.status(400).send(error)
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
 export const update = async(req, res) => {
     try {

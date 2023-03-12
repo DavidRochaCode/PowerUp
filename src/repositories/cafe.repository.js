@@ -16,14 +16,36 @@ export const getAll = async() =>{
 
 //listar pelo id
 
-export const getById = async(id) =>{
+/* export const getById = async(id) =>{
     const cafe = await prisma.cafe.findUnique({
         where:{
             id
         }
     })
     return cafe
+} */
+
+export const getFromUser = async(id_conta) =>{
+    const cafe = await prisma.cafe.findMany({
+        where:{
+            id_conta
+        }
+    })
+    return cafe
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //atualizar tabela
 export const updateCafe = async(id, data) => {

@@ -1,4 +1,4 @@
-import{create_cafe, getAll, getById,updateCafe, deleteCafe, deleteTudo} from '../repositories/cafe.repository'
+import{create_cafe, getAll, getById,updateCafe, deleteCafe, deleteTudo, getFromUser} from '../repositories/cafe.repository'
 
 export const create = async(req,res)=>{
     try {
@@ -18,14 +18,24 @@ export const get = async (req,res) =>{
     }
 }
 
-export const getId = async(req,res) => {
+/* export const getId = async(req,res) => {
     try {
         const cafe = await getById(Number(req.params.id))
         res.status(200).send(cafe)
     } catch (error) {
         res.status(400).send(error)
     }
+} */
+
+export const getByUser = async(req,res) =>{
+    try {
+        const cafe = await getFromUser(Number(req.params.id_conta))
+        res.status(200).send(cafe)
+    } catch (error) {
+        res.status(400).send(error)
+    }
 }
+
 
 export const update = async(req, res) => {
     try {

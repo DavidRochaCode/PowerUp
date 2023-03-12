@@ -62,7 +62,7 @@ model Jantar{
   gordura String?
   nome_alimento String?
   quantidade String?
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
  
   
@@ -75,7 +75,7 @@ model Cafe{
   gordura String?
   nome_alimento String?
   quantidade String?
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
 
@@ -88,7 +88,7 @@ model Lanche_manha{
   gordura String?
   nome_alimento String?
   quantidade String?
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
 }
@@ -100,7 +100,7 @@ model Almoco{
   gordura String?
   nome_alimento String?
   quantidade String?
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
   
@@ -113,7 +113,7 @@ model Lanche_tarde{
   gordura String?
   nome_alimento String?
   quantidade String?
-  id_conta Int @unique
+  id_conta Int
   conta Conta @relation(fields: [id_conta], references: [id])
  
  
@@ -125,7 +125,7 @@ model ExerSegunda{ //exer_triceps
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
 }
@@ -135,7 +135,7 @@ model ExerTerca{ //exer_deltoides
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
  
 }
@@ -145,7 +145,7 @@ model ExerQuarta{ //exer_peitoral
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
 
@@ -156,7 +156,7 @@ model ExerQuinta{ //exer_gluteo
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
  
@@ -167,7 +167,7 @@ model ExerSexta{ //exer_coxa
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int
   conta Conta @relation(fields: [id_conta], references: [id])
   
 
@@ -178,7 +178,7 @@ model ExerSabado{ //exer_panturruilha
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
 
@@ -189,7 +189,7 @@ model ExerDomingo{ //exer_dorsal
   nome String
   serie Int
   repeticao Int
-  id_conta Int @unique
+  id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
  

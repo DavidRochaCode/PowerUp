@@ -14,16 +14,30 @@ export const getAll = async() =>{
     return lanche
 }
 
+
+export const getFromUser = async(id_conta) =>{
+    const lanche = await prisma.lanche_tarde.findMany({
+        where:{
+            id_conta
+        }
+    })
+    return lanche
+}
+
+
+
+
+
 //listar pelo id
 
-export const getById = async(id) =>{
+/* export const getById = async(id) =>{
     const lanche = await prisma.lanche_tarde.findUnique({
         where:{
             id
         }
     })
     return lanche
-}
+} */
 
 //atualizar tabela
 export const updateLanche = async(id, data) => {

@@ -6,6 +6,8 @@ import { Buttons } from "../../Atomic/Buttons/Buttons";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
 import { useEffect, useState } from "react";
+import jsPDF from 'jspdf';
+const{userId} = require("../CriarDieta/getId")
 
 
 export function VerDieta(){
@@ -20,7 +22,7 @@ export function VerDieta(){
     const [ lanchesManha, getLanchesManha] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3001/lanche-da-tarde")
+        axios.get(`http://localhost:3001/lanche-da-tarde/${userId}`)
         .then((response) => {
             getLanchesTarde(response.data)
         })
@@ -29,7 +31,7 @@ export function VerDieta(){
         })
 
 
-        axios.get("http://localhost:3001/almoco")
+        axios.get(`http://localhost:3001/almoco/${userId}`)
         .then((response)=>{
             getAlmoco(response.data)
         })
@@ -37,7 +39,7 @@ export function VerDieta(){
             console.log("Há algum problema")
         })
 
-        axios.get("http://localhost:3001/cafe")
+        axios.get(`http://localhost:3001/cafe/${userId}`)
         .then((response)=>{
             getCafe(response.data)
         })
@@ -45,7 +47,7 @@ export function VerDieta(){
             console.log("Há algum problema")
         })
 
-        axios.get("http://localhost:3001/jantar")
+        axios.get(`http://localhost:3001/jantar/${userId}`)
         .then((response)=>{
             getJanta(response.data)
         })
@@ -53,7 +55,7 @@ export function VerDieta(){
             console.log("Há algum problema")
         })
 
-        axios.get("http://localhost:3001/lanche-da-manha")
+        axios.get(`http://localhost:3001/lanche-da-manha/${userId}`)
         .then((response)=>{
             getLanchesManha(response.data)
         })
@@ -62,8 +64,58 @@ export function VerDieta(){
         })
 
     },[])
+    
+        function gerarPdf() {
+
+        const doc = new jsPDF("portrait","mm",[597,410]);
+    
+
+        doc.setFont('bolditalic')
+        doc.setFontSize(15)
+        doc.setTextColor(136,84,207)
+        doc.setFont(undefined, 'bold')
+    
+        doc.text('Café', 20, 20);
+        var incrementador = 1;
+        cafe.forEach((item, index) => {
+            doc.text(`Aliemento ${incrementador}: ${item.nome_alimento}, Quantidade: ${item.quantidade} unidade(s), Proteínas: ${item.proteina}gm, Carboidratos: ${item.carboidrato}gm, Gorduras: ${item.gordura}gm.`,20, 40 + index * 10)
+            incrementador++
+        });
+
+        doc.text('Lanche da Manhã', 20, 100);
+        incrementador = 1
+        lanchesManha.forEach((item, index) => {
+            doc.text(`Aliemento ${incrementador}: ${item.nome_alimento}, Quantidade: ${item.quantidade} unidade(s), Proteínas: ${item.proteina}gm, Carboidratos: ${item.carboidrato}gm, Gorduras: ${item.gordura}gm.`, 20, 120 + index * 10)
+            incrementador++
+        });
+
+        doc.text('Almoço', 20, 180);
+        incrementador = 1
+        almoco.forEach((item, index) => {
+            doc.text(`Aliemento ${incrementador}: ${item.nome_alimento}, Quantidade: ${item.quantidade} unidade(s), Proteínas: ${item.proteina}gm, Carboidratos: ${item.carboidrato}gm, Gorduras: ${item.gordura}gm.`, 20, 200 + index * 10)
+            incrementador++
+        });
+
+        doc.text('Lanche da tarde', 20, 260);
+        incrementador = 1
+        lanchesTarde.forEach((item, index) => {
+            doc.text(`Aliemento ${incrementador}: ${item.nome_alimento}, Quantidade: ${item.quantidade} unidade(s), Proteínas: ${item.proteina}gm, Carboidratos: ${item.carboidrato}gm, Gorduras: ${item.gordura}gm.`, 20, 280 + index * 10)
+            incrementador++
+        });
+
+        doc.text('Jantar', 20, 340);
+        incrementador = 1
+        janta.forEach((item, index) => {
+            doc.text(`Aliemento ${incrementador}: ${item.nome_alimento}, Quantidade: ${item.quantidade} unidade(s), Proteínas: ${item.proteina}gm, Carboidratos: ${item.carboidrato}gm, Gorduras: ${item.gordura}gm.`, 20, 360 + index * 10)
+            incrementador++
+        });
 
 
+        // Adicione outras seções do cardápio aqui
+
+        // Salva o documento como um arquivo PDF
+        doc.output("dataurlnewwindow")
+        }
     return(
         <div>
            
@@ -75,23 +127,22 @@ export function VerDieta(){
             </div>
            <div className="flex flex-col items-center justify-center">
             <div className=" w-max h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
-                        <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Cafe:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl" style={{color: '#8854D0', fontWeight: 'bold', fontSize: '18px'}}>Café</p>
         
                     {cafe.map((cafe,key) =>{
                     return(
                         <p>{
-                            "Nome: "
-                            +cafe.nome_alimento +", Quantidade: "
-                            + cafe.quantidade+", Proteínas: "
-                            + cafe.proteina +", Carboidratos "
-                            + cafe.carboidrato +", Gorduras "
-                            + cafe.gordura +"."
+                            "Nome: " +cafe.nome_alimento +", " 
+                            +"Quantidade:" + cafe.quantidade
+                            +", Proteínas: "+ cafe.proteina 
+                            +", Carboidratos "+ cafe.carboidrato 
+                            +", Gorduras "+ cafe.gordura +"."
                             }</p>
                         )
                     })}
 
                 <br></br>
-                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Lanche da Manhã:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl" style={{color: '#8854D0', fontWeight: 'bold', fontSize: '18px'}}>Lanche da Manhã</p>
                     {lanchesManha.map((lanchesManha,key) =>{
                     return(
                         <p>{
@@ -106,7 +157,7 @@ export function VerDieta(){
                     })}
 
                 <br></br>
-                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Almoco:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl" style={{color: '#8854D0', fontWeight: 'bold', fontSize: '18px'}}>Almoço</p>
                     {almoco.map((almoco,key) =>{
                     return(
                         <p>{
@@ -120,7 +171,7 @@ export function VerDieta(){
                     )
                 })}
                 <br></br>
-                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Lanche da Tarde:</p>
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl" style={{color: '#8854D0', fontWeight: 'bold', fontSize: '18px'}}>Lanche da Tarde</p>
                 {lanchesTarde.map((lanche,key) =>{
                 return(
                     <p>{
@@ -134,10 +185,9 @@ export function VerDieta(){
                 )
             })}
                 <br></br>
-                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl">Jantar:</p>
-
+                <p className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl" style={{color: '#8854D0', fontWeight: 'bold', fontSize: '18px'}}>Jantar</p>
                     {janta.map((janta,key) =>{
-                    return(
+                        return(
                         <p>{
                             "Nome: "
                             +janta.nome_alimento +", Quantidade: "
@@ -145,7 +195,7 @@ export function VerDieta(){
                             + janta.proteina +", Carboidratos "
                             + janta.carboidrato +", Gorduras "
                             + janta.gordura +"."
-                            }</p>
+                        }</p>
                     )
                     })}
                     <br></br>
@@ -164,7 +214,7 @@ export function VerDieta(){
                     </div>
                     
 
-                    <Buttons name="Gerar PDF"></Buttons>
+                    <Buttons name="Gerar PDF" func={gerarPdf}></Buttons>
                 </div>
                 
             </div>

@@ -1,4 +1,4 @@
-import{create_lanche_tarde, getAll, getById,updateLanche, deleteLanche, deleteTudo} from '../repositories/lancheTarde.repository'
+import{create_lanche_tarde, getAll, getById,updateLanche, deleteLanche, deleteTudo, getFromUser} from '../repositories/lancheTarde.repository'
 
 export const create = async(req,res)=>{
     try {
@@ -18,14 +18,25 @@ export const get = async (req,res) =>{
     }
 }
 
-export const getId = async(req,res) => {
+/* export const getId = async(req,res) => {
     try {
         const lanche = await getById(Number(req.params.id))
         res.status(200).send(lanche)
     } catch (error) {
         res.status(400).send(error)
     }
+} */
+
+export const getByUser = async(req,res) =>{
+    try {
+        const lanche = await getFromUser(Number(req.params.id_conta))
+        res.status(200).send(lanche)
+    } catch (error) {
+        res.status(400).send(error)
+    }
 }
+
+
 
 export const update = async(req, res) => {
     try {
