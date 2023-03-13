@@ -60,7 +60,11 @@ export const deleteLanche = async(id) => {
     return
 }
 
-export const deleteTudo = async() => {
-    await prisma.lanche_manha.deleteMany({})
+export const deleteTudo = async(id_conta) => {
+    await prisma.lanche_manha.deleteMany({
+        where:{
+            id_conta
+        }
+    })
     return deleteTudo
 }

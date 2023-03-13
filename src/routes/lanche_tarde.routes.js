@@ -7,7 +7,7 @@ const rotas_lanche_tarde = app =>{
     app.get("/lanche-da-tarde/:id_conta", getByUser)
     //deletar
     app.delete("/lanche-da-tarde/:id", remove)
-    app.delete("/lanche-da-tarde-delete", deleteAll)
+    app.delete("/lanche-da-tarde-delete/:id_conta", deleteAll)
     
 }
 

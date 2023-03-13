@@ -7,7 +7,7 @@ const rotas_jantar = app =>{
     app.get("/jantar/:id_conta", getByUser)
     //deletar
     app.delete("/jantar/:id", remove)
-    app.delete("/jantar-delete", deleteAll)
+    app.delete("/jantar-delete/:id_conta", deleteAll)
 }
 
 export default rotas_jantar

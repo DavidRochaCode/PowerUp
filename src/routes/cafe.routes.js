@@ -8,7 +8,7 @@ const rotas_cafe = app =>{
     app.get("/cafe/:id_conta", getByUser)
     //deletar
     app.delete("/cafe/:id", remove)
-    app.delete("/cafe-delete", deleteAll)
+    app.delete("/cafe-delete/:id_conta", deleteAll)
 }
 
 export default rotas_cafe

@@ -110,10 +110,6 @@ export function VerDieta(){
             incrementador++
         });
 
-
-        // Adicione outras seções do cardápio aqui
-
-        // Salva o documento como um arquivo PDF
         doc.output("dataurlnewwindow")
         }
     return(
@@ -202,11 +198,11 @@ export function VerDieta(){
                 <div className="flex flex-col content-center items-center">
                     <div className="my-[20px]">
                         <Buttons name="Deletar" func={()=>{
-                            axios.delete(`http://localhost:3001/cafe-delete`)
-                            axios.delete(`http://localhost:3001/almoco-delete`)
-                            axios.delete(`http://localhost:3001/jantar-delete`)
-                            axios.delete(`http://localhost:3001/lanche-da-tarde-delete`)
-                            axios.delete(`http://localhost:3001/lanche-da-manha-delete`)
+                            axios.delete(`http://localhost:3001/cafe-delete/${userId}`)
+                            axios.delete(`http://localhost:3001/almoco-delete/${userId}`)
+                            axios.delete(`http://localhost:3001/jantar-delete/${userId}`)
+                            axios.delete(`http://localhost:3001/lanche-da-tarde-delete/${userId}`)
+                            axios.delete(`http://localhost:3001/lanche-da-manha-delete/${userId}`)
                             // eslint-disable-next-line no-restricted-globals
                             location.reload()
                     

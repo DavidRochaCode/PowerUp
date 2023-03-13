@@ -34,19 +34,6 @@ export const getFromUser = async(id_conta) =>{
     return cafe
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //atualizar tabela
 export const updateCafe = async(id, data) => {
     const cafe =  await prisma.cafe.update({
@@ -69,7 +56,11 @@ export const deleteCafe = async(id) => {
     return
 }
 
-export const deleteTudo = async() => {
-    await prisma.cafe.deleteMany({})
+export const deleteTudo = async(id_conta) => {
+    await prisma.cafe.deleteMany({
+        where:{
+            id_conta
+        }
+    })
     return deleteTudo
 }

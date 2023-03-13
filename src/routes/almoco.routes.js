@@ -7,7 +7,7 @@ const rotas_almoco = app =>{
     app.get("/almoco/:id_conta", getByUser)
     //deletar
     app.delete("/almoco/:id", remove)
-    app.delete("/almoco-delete", deleteAll)
+    app.delete("/almoco-delete/:id_conta", deleteAll)
 }
 
 export default rotas_almoco

@@ -58,7 +58,11 @@ export const deleteAlmoco = async(id) => {
     return
 }
 
-export const deleteTudo = async() => {
-    await prisma.almoco.deleteMany({})
+export const deleteTudo = async(id_conta) => {
+    await prisma.almoco.deleteMany({
+        where:{
+            id_conta
+        }
+    })
     return deleteTudo
 }

@@ -58,7 +58,7 @@ export const remove = async(req, res) => {
 
 export const deleteAll = async(req, res) =>{
     try{
-        await deleteTudo()
+        await deleteTudo(Number(req.params.id_conta))
         res.status(200).send("tudo deletado")
     }catch(error){
         console.log(error)
