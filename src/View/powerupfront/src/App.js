@@ -6,6 +6,8 @@ import { Login } from "./Templates/Login/Login";
 import { Perfil } from "./Templates/Perfil/Perfil";
 import { SingUp } from "./Templates/SingUp/SingUp";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import{Treino} from "./Templates/Treino/Treino"
+import { VerTreino } from "./Organism/VerTreino/VerTreino";
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
             <Route exact path='/perfil' element={<Perfil/>}></Route>
             <Route exact path='/dieta' element={<Dieta/>}></Route>
             <Route exact path='/verDieta' element={<VerDieta/>}></Route>
+            <Route exact path='/treino' element={<Treino/>}></Route>
+            <Route exact path='/verTreino' element={<VerTreino/>}></Route>
              </Routes>
         </Container>
         

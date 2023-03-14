@@ -7,7 +7,7 @@ import axios, { isCancel, AxiosError } from "axios";
 import response from "react";
 import { useEffect, useState } from "react";
 import jsPDF from 'jspdf';
-const{userId} = require("../CriarDieta/getId")
+const{userId} = require('../../getUser/getId')
 
 
 export function VerDieta(){
@@ -15,7 +15,7 @@ export function VerDieta(){
 
     axios.defaults.headers.common['Authorization'] = `Bearer `
 
-    const [ lanchesTarde, getLanchesTarde] = useState([])
+    const [lanchesTarde, getLanchesTarde] = useState([])
     const[almoco, getAlmoco] = useState([])
     const[cafe, getCafe] = useState([])
     const[janta, getJanta] = useState([])

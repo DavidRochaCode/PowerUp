@@ -122,9 +122,9 @@ model Lanche_tarde{
 
 model ExerSegunda{ //exer_triceps
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
@@ -132,9 +132,9 @@ model ExerSegunda{ //exer_triceps
 
 model ExerTerca{ //exer_deltoides
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
  
@@ -142,9 +142,9 @@ model ExerTerca{ //exer_deltoides
 
 model ExerQuarta{ //exer_peitoral
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
@@ -153,9 +153,9 @@ model ExerQuarta{ //exer_peitoral
 
 model ExerQuinta{ //exer_gluteo
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
@@ -164,9 +164,9 @@ model ExerQuinta{ //exer_gluteo
 
 model ExerSexta{ //exer_coxa
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int
   conta Conta @relation(fields: [id_conta], references: [id])
   
@@ -175,9 +175,9 @@ model ExerSexta{ //exer_coxa
 
 model ExerSabado{ //exer_panturruilha
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   
@@ -186,9 +186,9 @@ model ExerSabado{ //exer_panturruilha
 
 model ExerDomingo{ //exer_dorsal
   id Int @id @default(autoincrement())
-  nome String
-  serie Int
-  repeticao Int
+  nome String?
+  serie String?
+  repeticao String?
   id_conta Int 
   conta Conta @relation(fields: [id_conta], references: [id])
   

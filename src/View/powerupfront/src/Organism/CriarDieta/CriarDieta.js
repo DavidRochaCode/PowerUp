@@ -4,7 +4,7 @@ import { DietaForm } from "../DietaForm/DietaForm";
 import { useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react"
-const{userId} = require('./getId')
+const{userId} = require('../../getUser/getId')
 
 export function CriarDieta(){
   
@@ -117,8 +117,6 @@ export function CriarDieta(){
     }
 
 
-  
-    
     function addCafe(event){
         event.preventDefault()
         axios
