@@ -1,6 +1,8 @@
 import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
 import { useEffect, useState } from "react";
+import jsPDF from 'jspdf';
+
 
 
 
@@ -74,6 +76,7 @@ export function SolicitarDieta(){
         if(kal <= 2000 && kal >= 1000){
             if(tipo === "emagrecimento"){
                 setUserTipo("emagrecer")
+        
                 
             }else if(tipo === "ganho"){
                 setUserTipo("ganhar")
@@ -98,8 +101,37 @@ export function SolicitarDieta(){
             alert("digite um valor para receber a dieta correta")
         }
     }
+    let print = []
+    
+    
 
     let type = usertipo;
+
+    print.push(dieta[type].cafe)
+    print.push(dieta[type].lancheM)
+    print.push(dieta[type].almoco)
+    print.push(dieta[type].lancheT)
+    print.push(dieta[type].janta)
+
+    let arrayPrint = ["CAFÉ",...dieta[type].cafe,"LANCHE MANHÃ",...dieta[type].lancheM,"ALMOÇO",...dieta[type].almoco,"LANCHE TARDE",...dieta[type].lancheT,"JANTAR",...dieta[type].janta]
+
+    
+
+    function gerarPDF() {
+
+        console.log("teste pdf")
+        // Crie um novo objeto jsPDF
+        const doc = new jsPDF();
+      
+        // Selecione o elemento que deseja exportar como PDF
+        const element = document.getElementById('elemento-pdf');
+      
+        doc.text(arrayPrint,10,10)
+       
+
+        doc.save('dieta.pdf');
+      }
+      
     
     return(
         <div className="flex flex-col items-center justify-center pt-[20px]" >
@@ -113,6 +145,8 @@ export function SolicitarDieta(){
 
                     <Inputs type="number" func={handleKalChange}/>
                     <Buttons type="submit" name="Solicitar" func={onClickSolicitar} />
+
+                    <div id="elemento-pdf">
 
                     <div className=" w-[1300px] h-max p-[50px]  rounded-[12px] my-[30px] ">
 
@@ -145,6 +179,12 @@ export function SolicitarDieta(){
                             <p>{dieta[type].janta}</p>
                         </div>
            
+                    </div>
+
+                    </div>
+
+                    <div>
+                        <Buttons name="Gerar PDF" func={gerarPDF}></Buttons>
                     </div>
             </div>
             
