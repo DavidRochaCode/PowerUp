@@ -227,25 +227,25 @@ export function CriarTreino(){
                 <p>Treino</p>
                 <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-3">
-                        <TreinoForm name="Segunda" nomeFunc={handleNomeS} serie={handleserieS} repeticao= {handlerepeticaoS} butFunc = {addSegunda} />
+                        <TreinoForm name="Segunda" nome={handleNomeS} serie={handleserieS} repeticao= {handlerepeticaoS} butFunc = {addSegunda} />
                     </div>
                     <div className="col-span-3">
-                        <TreinoForm name="Terça"  nomeFunc={handleNomeT} serie={handleserieT} repeticao= {handlerepeticaoT} butFunc = {addTerca} />
+                        <TreinoForm name="Terça"  nome={handleNomeT} serie={handleserieT} repeticao= {handlerepeticaoT} butFunc = {addTerca} />
                     </div>
                     <div className="col-span-3">
-                        <TreinoForm name="Quarta"  nomeFunc={handleNomeQ} serie={handleserieQ} repeticao= {handlerepeticaoQ} butFunc = {addQuarta} />
+                        <TreinoForm name="Quarta"  nome={handleNomeQ} serie={handleserieQ} repeticao= {handlerepeticaoQ} butFunc = {addQuarta} />
                     </div>
                     <div className="col-span-3">
-                        <TreinoForm name="Quinta" nomeFunc={handleNomeQu} serie={handleserieQu} repeticao= {handlerepeticaoQu} butFunc = {addQuinta} />
+                        <TreinoForm name="Quinta" nome={handleNomeQu} serie={handleserieQu} repeticao= {handlerepeticaoQu} butFunc = {addQuinta} />
                     </div>
                     <div className="col-span-3">
-                        <TreinoForm name="Sexta"  nomeFunc={handleNomeSx} serie={handleserieSx} repeticao= {handlerepeticaoSx} butFunc = {addSexta} />
+                        <TreinoForm name="Sexta"  nome={handleNomeSx} serie={handleserieSx} repeticao= {handlerepeticaoSx} butFunc = {addSexta} />
                     </div>
                     <div className="col-span-3">
-                        <TreinoForm name="Sábado"  nomeFunc={handleNomeSb} serie={handleserieSb} repeticao= {handlerepeticaoSb} butFunc = {addSabado} />
+                        <TreinoForm name="Sábado"  nome={handleNomeSb} serie={handleserieSb} repeticao= {handlerepeticaoSb} butFunc = {addSabado} />
                     </div>
                     <div className="col-span-3">
-                        <TreinoForm name="Domingo" nomeFunc={handleNomeD} serie={handleserieD} repeticao= {handlerepeticaoD} butFunc = {addDomingo} />
+                        <TreinoForm name="Domingo" nome={handleNomeD} serie={handleserieD} repeticao= {handlerepeticaoD} butFunc = {addDomingo} />
                     </div>
                 </div>
                 
