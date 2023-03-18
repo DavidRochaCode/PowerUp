@@ -1,4 +1,4 @@
-import { create_exer_quinta, getAll, getById,updateQuinta, deleteQuinta } from "../repositories/exer_quinta.repository"
+import { create_exer_quinta, getAll, getById,updateQuinta, deleteQuinta, getFromUser, deleteTudo } from "../repositories/exer_quinta.repository"
 
 export const create = async(req,res)=>{
     try {
@@ -44,4 +44,22 @@ export const remove = async(req, res) => {
         res.status(400).send(error)
     }
     
+}
+
+export const getByUser = async(req,res) =>{
+    try {
+        const quinta = await getFromUser(Number(req.params.id_conta))
+        res.status(200).send(quinta)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+export const deleteAll = async(req, res) =>{
+    try{
+        await deleteTudo(Number(req.params.id_conta))
+        res.status(200).send("tudo deletado")
+    }catch(error){
+        console.log(error)
+    }
 }

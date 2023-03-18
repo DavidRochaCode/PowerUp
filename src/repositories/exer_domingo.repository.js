@@ -25,6 +25,17 @@ export const getById = async(id) =>{
     return domingo
 }
 
+export const getFromUser = async(id_conta) =>{
+    const domingo = await prisma.exerDomingo.findMany({
+        where:{
+            id_conta
+        }
+    })
+    return domingo
+}
+
+
+
 //atualizar tabela
 export const updateDomingo = async(id, data) => {
     const domingo =  await prisma.exerDomingo.update({
@@ -45,4 +56,14 @@ export const deleteDomingo = async(id) => {
         }
     })
     return
+}
+
+//deletar tudo
+export const deleteTudo = async(id_conta) => {
+    await prisma.exerDomingo.deleteMany({
+        where:{
+            id_conta
+        }
+    })
+    return deleteTudo
 }

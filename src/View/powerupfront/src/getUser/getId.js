@@ -4,7 +4,7 @@ if (token) {
   const base64Url = token.split('.')[1];
   const base64 = base64Url.replace('-', '+').replace('_', '/');
   const decodedToken = JSON.parse(atob(base64));
-  exports.userId = decodedToken.id;
+  exports.userId = decodedToken.id; //exportando o id
 } else {
   const userId = null; // ou qualquer outro valor padrão que você desejar
 }

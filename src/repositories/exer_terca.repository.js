@@ -25,6 +25,19 @@ export const getById = async(id) =>{
     return terca
 }
 
+
+export const getFromUser = async(id_conta) =>{
+    const terca = await prisma.exerTerca.findMany({
+        where:{
+            id_conta
+        }
+    })
+    return terca
+}
+
+
+
+
 //atualizar tabela
 export const updateTerca = async(id, data) => {
     const terca =  await prisma.exerTerca.update({
@@ -45,4 +58,14 @@ export const deleteTerca = async(id) => {
         }
     })
     return
+}
+
+//deletar tudo
+export const deleteTudo = async(id_conta) => {
+    await prisma.exerTerca.deleteMany({
+        where:{
+            id_conta
+        }
+    })
+    return deleteTudo
 }

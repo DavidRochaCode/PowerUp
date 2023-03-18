@@ -25,6 +25,19 @@ export const getById = async(id) =>{
     return segunda
 }
 
+
+export const getFromUser = async(id_conta) =>{
+    const segunda = await prisma.exerSegunda.findMany({
+        where:{
+            id_conta
+        }
+    })
+    return segunda
+}
+
+
+
+
 //atualizar tabela
 export const updateSegunda = async(id, data) => {
     const segunda =  await prisma.exerSegunda.update({
@@ -45,4 +58,14 @@ export const deleteSegunda = async(id) => {
         }
     })
     return
+}
+
+//deletar tudo
+export const deleteTudo = async(id_conta) => {
+    await prisma.exerSegunda.deleteMany({
+        where:{
+            id_conta
+        }
+    })
+    return deleteTudo
 }

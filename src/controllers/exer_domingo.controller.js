@@ -1,4 +1,4 @@
-import { create_exer_domingo, getAll, getById,updateDomingo, deleteDomingo } from "../repositories/exer_domingo.repository"
+import { create_exer_domingo, getAll, getById,updateDomingo, deleteDomingo, getFromUser, deleteTudo } from "../repositories/exer_domingo.repository"
 
 export const create = async(req,res)=>{
     try {
@@ -44,4 +44,22 @@ export const remove = async(req, res) => {
         res.status(400).send(error)
     }
     
+}
+
+export const getByUser = async(req,res) =>{
+    try {
+        const domingo = await getFromUser(Number(req.params.id_conta))
+        res.status(200).send(domingo)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
+
+export const deleteAll = async(req, res) =>{
+    try{
+        await deleteTudo(Number(req.params.id_conta))
+        res.status(200).send("tudo deletado")
+    }catch(error){
+        console.log(error)
+    }
 }
