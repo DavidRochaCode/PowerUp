@@ -4,6 +4,8 @@ import { TreinoForm } from "../TreinoForms/treinoForms";
 import { useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function CriarTreino(){
 
@@ -122,103 +124,115 @@ export function CriarTreino(){
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
             });
+            
     }
 
     function addTerca(event){
-      //event.preventDefault()
+      event.preventDefault()
         axios
             .post("http://localhost:3001/terca", ExerT)
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
             });
+            
     }
 
-    function addQuarta(){
+    function addQuarta(event){
+      event.preventDefault()
         axios
             .post("http://localhost:3001/quarta", ExerQ)
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
             });
+            
     }
 
-    function addQuinta(){
+    function addQuinta(event){
+      event.preventDefault()
         axios
             .post("http://localhost:3001/quinta", ExerQu)
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
             });
+            
     }
 
-    function addSexta(){
+    function addSexta(event){
+      event.preventDefault()
       
         axios
             .post("http://localhost:3001/sexta", ExerSx)
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
               alert(err)
             });
+           
     }
 
-    function addSabado(){
+    function addSabado(event){
+      event.preventDefault()
       
         axios
             .post("http://localhost:3001/sabado", ExerSb)
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
               alert(err)
             });
+            
     }
 
-    function addDomingo(){
+    function addDomingo(event){
+      event.preventDefault()
       
         axios
             .post("http://localhost:3001/domingo", ExerD)
             .then(response => {
               if (response.status === 200) {
                 console.log("Exercício cadastrado");
-                alert("Exercício cadastrado")
+                toast.success("Exercício adicionado")
               }
             })
             .catch((err) => {
               console.log(err);
               alert(err)
             });
+            
     }
 
     return(
@@ -228,24 +242,31 @@ export function CriarTreino(){
                 <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-3">
                         <TreinoForm name="Segunda" nome={handleNomeS} serie={handleserieS} repeticao= {handlerepeticaoS} butFunc = {addSegunda} />
+                        <ToastContainer/>
                     </div>
                     <div className="col-span-3">
                         <TreinoForm name="Terça"  nome={handleNomeT} serie={handleserieT} repeticao= {handlerepeticaoT} butFunc = {addTerca} />
+                        <ToastContainer/>
                     </div>
                     <div className="col-span-3">
                         <TreinoForm name="Quarta"  nome={handleNomeQ} serie={handleserieQ} repeticao= {handlerepeticaoQ} butFunc = {addQuarta} />
+                        <ToastContainer/>
                     </div>
                     <div className="col-span-3">
                         <TreinoForm name="Quinta" nome={handleNomeQu} serie={handleserieQu} repeticao= {handlerepeticaoQu} butFunc = {addQuinta} />
+                        <ToastContainer/>
                     </div>
                     <div className="col-span-3">
                         <TreinoForm name="Sexta"  nome={handleNomeSx} serie={handleserieSx} repeticao= {handlerepeticaoSx} butFunc = {addSexta} />
+                        <ToastContainer/>
                     </div>
                     <div className="col-span-3">
                         <TreinoForm name="Sábado"  nome={handleNomeSb} serie={handleserieSb} repeticao= {handlerepeticaoSb} butFunc = {addSabado} />
+                        <ToastContainer/>
                     </div>
                     <div className="col-span-3">
                         <TreinoForm name="Domingo" nome={handleNomeD} serie={handleserieD} repeticao= {handlerepeticaoD} butFunc = {addDomingo} />
+                        <ToastContainer/>
                     </div>
                 </div>
                 

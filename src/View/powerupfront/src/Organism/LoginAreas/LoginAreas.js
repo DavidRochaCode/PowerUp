@@ -2,7 +2,8 @@ import { Link} from "react-router-dom";
 import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
 import{useNavigate} from "react-router-dom"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 import response from "react"
@@ -24,7 +25,7 @@ export function LoginAreas({title,subTitle,but}){
             senha: userPassword,
             email: userEmail,
           };
-          
+              
               axios
                 .post("http://localhost:3001/login", userInfo)
                 .then(response => {
@@ -34,21 +35,24 @@ export function LoginAreas({title,subTitle,but}){
                     localStorage.setItem("powerup", JSON.stringify(token))
                     /* console.log(token) */
                     navigate("/Home");
+                    //Toda vez que um usuário é autenticado, faz-se necessário recarregar a página, para o token antigo sair
+                    setTimeout(function(){
+                      // eslint-disable-next-line no-restricted-globals
+                      location.reload();
+                      }, 500); // Recarrega a página após 3 segundos (3000 milissegundos)  
                   }
                 })
                 .catch((err) => {
                   console.log(err);
-                  alert("Usuário não cadastrado")
+                  //alert("Usuário não cadastrado")
+                  toast.warning("usuário não cadastrado")
                 });
                 console.log("Endereço de email válido.");
               } else {
                 console.log("Endereço de email inválido.");
+                toast.warning("Endereço de Email inválido")
               }
-      //Toda vez que um usuário é autenticado, faz-se necessário recarregar a página, para o token antigo sair
-      setTimeout(function(){
-        // eslint-disable-next-line no-restricted-globals
-        location.reload();
-        }, 500); // Recarrega a página após 3 segundos (3000 milissegundos)  
+      
     }
             
                     
@@ -84,6 +88,7 @@ export function LoginAreas({title,subTitle,but}){
 
                 <div className="my-[20px]">  
                         <Buttons name={but} id="" func={addUser}/>
+                        <ToastContainer/>
                 </div>   
 
             </div>
