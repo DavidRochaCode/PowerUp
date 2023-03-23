@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Buttons } from '../../Atomic/Buttons/Buttons.js';
 import { Headers } from "../../Organism/Headers.js/Headers.js";
 import { Footers } from "../../Organism/Footers/Footers.js";
+import { VerificarExercicio } from "../../Organism/VerificarExercicio/VerificarExercicio.js";
 
 export function Home(){
 
@@ -36,6 +37,8 @@ export function Home(){
                     </div>
                 </div>
             </div>
+
+            <VerificarExercicio/>
             <Footers/>
         </div>
 
