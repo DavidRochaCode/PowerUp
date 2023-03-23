@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Buttons } from "../../Atomic/Buttons/Buttons";
+import axios, { isCancel, AxiosError } from "axios";
+import jsPDF from 'jspdf';
+
 
 
 
@@ -32,11 +35,11 @@ export function SolicitarTreino(){
             "parte3":["Treino de membros superiores e abdominais"],
             "dia3":["Flexão de braço: 3 séries de 8-12 repetições - ","Remada com halteres: 3 séries de 8-12 repetições - ","Elevação lateral com halteres: 3 séries de 8-12 repetições - ","Rosca martelo com halteres: 3 séries de 8-12 repetições - ","Tríceps testa com halteres: 3 séries de 8-12 repetições - ","Prancha lateral: 3 séries de 30-60 segundos em cada lado"],
             "parte4":[""],
-            "dia4":[""],
+            "dia4":["Descanso"],
             "parte5":[""],
-            "dia5":[""],
+            "dia5":["Descanso"],
             "parte6":[""],
-            "dia6":[""]
+            "dia6":["Descanso"]
         },
 
         "4":{
@@ -49,9 +52,9 @@ export function SolicitarTreino(){
             "parte4":["Treino de ombros e abdominais"],
             "dia4":["Press militar com barra: 3-4 séries de 8-12 repetições - ","Elevação lateral com halteres: 3-4 séries de 8-12 repetições - ","Desenvolvimento frontal com halteres: 3-4 séries de 8-12 repetições - ","Abdominais: 3-4 séries de 12-15 repetições"],
             "parte5":[""],
-            "dia5":[""],
+            "dia5":["Descanso"],
             "parte6":[""],
-            "dia6":[""]
+            "dia6":["Descanso"]
         },
 
         "5":{
@@ -66,7 +69,7 @@ export function SolicitarTreino(){
             "parte5":["Treino de braços e abdominais"],
             "dia5":["Rosca bíceps com barra: 3-4 séries de 8-12 repetições - ","Tríceps pulley: 3-4 séries de 8-12 repetições - ","Martelo com halteres: 3-4 séries de 8-12 repetições - ","Abdominais: 3-4 séries de 12-15 repetições"],
             "parte6":[""],
-            "dia6":[""]
+            "dia6":["Descanso"]
         },
 
         "6":{
@@ -83,10 +86,18 @@ export function SolicitarTreino(){
             "parte6":["Treino de braços e antebraços"],
             "dia6":["Rosca bíceps com halteres: 3 séries de 8-12 repetições - ","Rosca scott: 3 séries de 8-12 repetições - ","Tríceps corda: 3 séries de 8-12 repetições - ","Tríceps francês com halteres: 3 séries de 8-12 repetições - ","Curl de antebraço com barra: 3 séries de 12-15 repetições - ", "Extensão de antebraço com halteres: 3 séries"]
         },
+    
+    }
+
+    const aviso = {
+        "1":{
+            "aviso1":["Lembre-se de aquecer antes de cada treino e de alongar após. Escolha uma carga que permita que você complete todas as repetições com boa forma e descanse entre as séries por cerca de 60-90 segundos. Se possível, tente aumentar gradualmente a carga e/ou o número de repetições para progredir. Certifique-se de ter um programa de treinamento personalizado, que leve em consideração suas limitações, objetivos e experiência prévia com exercícios. Se tiver dúvidas ou preocupações, consulte um profissional de educação física ou um médico antes de iniciar qualquer programa de treinamento."]
+        },
     }
 
     const [fator, setFator] = useState("");
     const [userFator, setUserFator] = useState("default")
+    const [data, getData] = useState([]);
 
     const handleFatorChange = (e) => setFator(e.target.value);
 
@@ -113,25 +124,80 @@ export function SolicitarTreino(){
 
     let TypeFator = userFator;
 
+    let perfilFator = data.map((fator, index) => { return fator.fatorAtividade})
+    console.log(perfilFator);
+
+    
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
+        const config = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+
+        axios.get(`http://localhost:3001/perfil/`, config)
+        .then(reponse => {
+            console.log(reponse.data)
+            getData(reponse.data)
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("Deu erro");
+          });
+    }, []);
+
+    let print = []
+
+    print.push(treino[TypeFator].dia1)
+    print.push(treino[TypeFator].dia2)
+    print.push(treino[TypeFator].dia3)
+    print.push(treino[TypeFator].dia4)
+    print.push(treino[TypeFator].dia5)
+    print.push(treino[TypeFator].dia6)
+    print.push(aviso[1].aviso1)
+
+    let arrayPrintTreino = ["Dia 1",...treino[TypeFator].dia1,"Dia 2",...treino[TypeFator].dia2,"Dia 3",...treino[TypeFator].dia3,"Dia 4",...treino[TypeFator].dia4,"Dia 5",...treino[TypeFator].dia5,"Dia 6",...treino[TypeFator].dia6,"Aviso",...aviso[1].aviso1]
+
+    function gerarPDFTreino() {
+
+        console.log("teste pdf")
+        // Crie um novo objeto jsPDF
+        const doc = new jsPDF();
+      
+        // Selecione o elemento que deseja exportar como PDF
+        const element = document.getElementById('elemento-pdf');
+      
+        doc.text(arrayPrintTreino,10,10)
+       
+
+        doc.save('treino.pdf');
+      }
+
 
     return(
         <div>
              <div className="flex flex-col items-center justify-center pt-[20px]" >
-            <p>Solicitar Treino</p>
+                <p className="text-2xl font-bold text-[#8854d0]">Solicitar Treino</p>
             <div className=" w-max h-max p-[50px] shadow-2xl rounded-[12px] my-[30px] ">
-                    <p>Selecione o fator atividade desejado</p>
-                    <select name="" id="" onChange={handleFatorChange}>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
 
                     
-                    <Buttons type="submit" name="Solicitar" func={onClickSolicitarTreino} />
+                        <p className="my-[20px]">Selecione o fator atividade desejado</p>
 
-                    
+                        
+                        <p className="my-[20px]">O seu fator atividade atual é: {perfilFator}</p>
+                        
 
+                        <div className="my-[20px]">
+                            <select name="" id="" onChange={handleFatorChange} className="mr-[20px]">
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+
+                            <Buttons type="submit" name="Solicitar" func={onClickSolicitarTreino} />    
+                        </div>
+
+                       
                     <div className=" w-[1300px] h-max p-[50px]  rounded-[12px] my-[30px] ">
 
                         <div className="">
@@ -168,9 +234,16 @@ export function SolicitarTreino(){
                             <p className="my-[10px] font-bold">{treino[TypeFator].parte6}</p>
                             <p>{treino[TypeFator].dia6}</p>
                         </div>
-
-                        
-           
+                        <div className=" shadow-inner p-[20px] m-[10px] duration-500 hover:shadow-2xl ">
+                            
+                            <p className="my-[10px] font-bold">
+                                {aviso[1].aviso1}
+                            </p>
+                            
+                        </div>
+                        <div>
+                            <Buttons name="Gerar PDF" func={gerarPDFTreino}></Buttons>
+                        </div>
                         </div>
                     </div>
                 
