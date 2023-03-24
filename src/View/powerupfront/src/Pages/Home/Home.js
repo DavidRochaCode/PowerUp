@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Buttons } from '../../Atomic/Buttons/Buttons.js';
 import { Headers } from "../../Organism/Headers.js/Headers.js";
 import { Footers } from "../../Organism/Footers/Footers.js";
+import { VerificarExercicio } from "../../Organism/VerificarExercicio/VerificarExercicio.js";
+import { IconBarbell } from '@tabler/icons-react';
+
 
 export function Home(){
 
@@ -13,7 +16,10 @@ export function Home(){
             <Headers/>
             <div className="">
                 <div className="flex flex-col items-center">
-                    <h1 className="text-[50px] mt-[140px] font-bold text-[#8854d0]">Bem Vindo ao PowerUp</h1>
+                    <div className="flex flex-row">
+                        <h1 className="text-[50px] mt-[140px] font-bold text-[#8854d0]">Bem Vindo ao PowerUp</h1>
+                        <IconBarbell width="50" height="50" className="text-[50px] mt-[140px] font-bold text-[#8854d0]"/>
+                    </div>
                     <p className="text-[20px] ">Uma aplicação feita para os amantes da musculação</p>
                 </div>
                 <div className="flex flex-col items-center">
@@ -34,8 +40,14 @@ export function Home(){
                             <p className="py-[10px]">De acordo com o seu imc é geraod um diagnótico sobre a sua atual situação.</p>
                         </div>
                     </div>
+                    <div className="my-[30px]">
+                        <p className="text-[20px] text-[#8854d0]">Mais Aplicações abaixo</p>
+                    </div>
                 </div>
             </div>
+
+            <VerificarExercicio/>
+            
             <Footers/>
         </div>
 
