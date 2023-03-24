@@ -1,6 +1,5 @@
 
 import { Footers } from "../../Organism/Footers/Footers.js";
-
 import { HeadersLogin } from "../../Organism/Headers.js/HeadersLogin.js";
 import { LoginAreas } from "../../Organism/LoginAreas/LoginAreas.js";
 

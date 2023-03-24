@@ -2,19 +2,17 @@ import { Link } from "react-router-dom";
 import { Buttons } from "../../Atomic/Buttons/Buttons";
 import { Inputs } from "../../Atomic/Input/Inputs";
 import { useEffect, useState } from "react";
-import axios, { isCancel, AxiosError } from "axios";
+import axios, { isCancel} from "axios";
 import response from "react";
 import {Chart} from "react-google-charts"
 import {BarChart} from "./GraficoPerfil";
 import Grafict from "./Grafict";
-
-
-
-
+import { undefined } from "zod";
+const{userId} = require('../../getUser/getId')
 
 export function PerfilArea(){
-
-
+    
+    
     const [idade, setIdade] = useState("");
     const [peso, setPeso] = useState("");
     const [altura, setAltura] = useState("");
@@ -30,6 +28,58 @@ export function PerfilArea(){
 
     const pesoData = perfil.map((peso)=>(peso.peso))
 
+    function deletePerfil(){
+        const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
+        const config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+        axios.delete(`http://localhost:3001/perfil/${userId}`, config)
+        .then(response => {
+            if(response.status === 200){
+                console.log("deletado")
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    }
+
+    function updatePerfil(e){
+
+        e.preventDefault()
+
+        let perfilInfo = {
+            idade: idade,
+            peso: peso,
+            altura: altura,
+            genero: genero,
+            fatorAtividade: fator,
+            id_conta: userId,
+        }
+
+        
+        const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
+        const config = {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          };
+
+        axios.put(`http://localhost:3001/perfil/atualizar/${userId}`, perfilInfo, config)
+        .then(response => {
+            if(response.status === 200){
+                console.log("atualizado")
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    }
+
     function addPerfil(e){
 
         e.preventDefault()
@@ -39,7 +89,8 @@ export function PerfilArea(){
             peso: peso,
             altura: altura,
             genero: genero,
-            fatorAtividade: fator
+            fatorAtividade: fator,
+            id_conta: userId,
         }
         const token = JSON.parse(localStorage.getItem("powerup")).token; // obter token do localStorage
         const config = {
@@ -48,17 +99,16 @@ export function PerfilArea(){
             }
           };
 
-        axios.post("http://localhost:3001/perfil", perfilInfo, config)
+        axios.post(`http://localhost:3001/perfil`, perfilInfo, config)
                 .then(response => {
                     if(response.status === 200){
-                        alert("Informações cadastradas")
                         console.log("cadastrado")
                     }
                 }).catch((err) => {
                     console.log(err);
                 });
-        
-        
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
     }
 
     useEffect(() => {
@@ -66,15 +116,39 @@ export function PerfilArea(){
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-        axios.get("http://localhost:3001/perfil", config)
+        axios.get(`http://localhost:3001/perfil/${userId}`, config)
           .then((response) => {
             setPerfil(response.data);
+
+            // eslint-disable-next-line eqeqeq
+            if(response.data == ""){
+                //desabilitar o botão de atualizar e deletar
+                var botaoAtualiza = document.getElementById("btn2")
+                botaoAtualiza.disabled = true
+                botaoAtualiza.style.backgroundColor = "#F5F5F5";
+                botaoAtualiza.style.borderColor = "#C4C4C4";
+                botaoAtualiza.style.color = "#C4C4C4";
+
+                var botaoDelete = document.getElementById("btn3")
+                botaoDelete.disabled = true
+                botaoDelete.style.backgroundColor = "#F5F5F5";
+                botaoDelete.style.borderColor = "#C4C4C4";
+                botaoDelete.style.color = "#C4C4C4";
+
+            }else{
+                var botaoCadastro =  document.getElementById("btn");
+                botaoCadastro.disabled = true;
+                botaoCadastro.style.backgroundColor = "#F5F5F5";
+                botaoCadastro.style.borderColor = "#C4C4C4";
+                botaoCadastro.style.color = "#C4C4C4";
+                
+            }
           })
           .catch((error) => {
             console.log(error);
             alert("Você não tem acesso. Faça login")
           });
-    }, []);
+      }, []);
 
     return(
         <div className="grid grid-cols-12">
@@ -84,13 +158,6 @@ export function PerfilArea(){
             <div className="my-[20px]">
                <h1 className="text-4xl font-bold text-[#8854d0]">PowerUp</h1> 
                <h2 className="text-2xl font-medium flex justify-center mt-[10px]">Perfil</h2>
-            </div>
-
-            <div className="my-[20px]">
-                <form action="" method="">
-                    <label htmlFor="" className="text-[#8854d0]">Nome de usuário:</label>
-                    <Inputs type="text" place="Nome:" name="" id="" func=""/>
-                </form>
             </div>
 
             <div className="my-[20px]">
@@ -128,13 +195,25 @@ export function PerfilArea(){
                 </form>
             </div>
 
-            <div className="my-[20px]"> 
-                        <Link to="/graficoPerfil">    
-                            <Buttons  name="Verificar Perfil" id="" func={addPerfil}/>
-                        </Link>
-            </div>   
+            <div className="my-[20px]"  style={{display: 'flex', flexDirection: 'row'}} >
+                <div id="teste"  className="mr-4" >
+                    <Link to="/graficoPerfil">    
+                        <Buttons name="Cadastrar" id="btn" func={addPerfil} />
+                    </Link>
+                </div>
+                <div className="mr-4">
+                    <Link to="/graficoPerfil">    
+                        <Buttons name="Atualizar" id="btn2" func={updatePerfil}/>
+                    </Link>
+                </div>
+                <div  className="mr-4">    
+                        <Buttons name="Deletar" id="btn3" func={deletePerfil}/>
+                    
+                </div>
+            </div>
 
         </div>
+        
             
     </div>
     <div className="col-span-6">
@@ -147,15 +226,15 @@ export function PerfilArea(){
 
                 <div className='w-[600px] h-max p-[50px] shadow-2xl rounded-[12px] my-[30px]'>
                     <h1>Dados-histórico</h1>
-                    {perfil.map((user,key) => {
-
+                    {perfil.map((perfil,key) => {
+                     
                         return(
                             <><div className="my-[20px] shadow-inner">
                                 
-                                <p className="p-[5px] m-[10px]">Idade:{user.idade}</p>
-                                <p className="p-[5px] m-[10px]">Peso:{user.peso}</p>
-                                <p className="p-[5px] m-[10px]">Altura:{user.altura}</p>
-                                <p className="p-[5px] m-[10px]">Fator:{user.fatorAtividade}</p>
+                                <p className="p-[5px] m-[10px]">Idade:{perfil.idade}</p>
+                                <p className="p-[5px] m-[10px]">Peso:{perfil.peso}</p>
+                                <p className="p-[5px] m-[10px]">Altura:{perfil.altura}</p>
+                                <p className="p-[5px] m-[10px]">Fator:{perfil.fatorAtividade}</p>
                                 
                             </div><hr></hr></>
                         )
