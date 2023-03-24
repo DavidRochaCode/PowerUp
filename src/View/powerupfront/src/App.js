@@ -8,6 +8,8 @@ import { SingUp } from "./Templates/SingUp/SingUp";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import{Treino} from "./Templates/Treino/Treino"
 import { VerTreino } from "./Organism/VerTreino/VerTreino";
+import{Imc} from "./Templates/Imc/imc"
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
             <Route exact path='/verDieta' element={<VerDieta/>}></Route>
             <Route exact path='/treino' element={<Treino/>}></Route>
             <Route exact path='/verTreino' element={<VerTreino/>}></Route>
+            <Route exact path='/imc' element={<Imc/>}></Route>
              </Routes>
         </Container>
         
